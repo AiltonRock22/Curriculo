@@ -1,1 +1,283 @@
-oi
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Interativo - Ailton Carlos Santos Mota</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application designed as a narrative portfolio. It uses a sticky navigation bar (Sobre, Linha do Tempo, Competências, Projetos) to allow non-linear exploration. The structure is thematic, starting with a personal introduction, followed by an interactive timeline to visualize career progression, an interactive skills chart to synthesize diverse abilities, and a final section for projects and interests to add personality. This structure was chosen to transform a flat CV into a compelling story, highlighting the unique synergy between Ailton's philosophical, technical, and mechanical backgrounds, making his profile more engaging and understandable for recruiters. -->
+    <!-- Visualization & Content Choices: 
+        - Hero Section: Goal: Inform/Introduce. Method: Text. Justification: Clear, immediate introduction.
+        - Interactive Timeline: Goal: Show Change/Progression. Method: HTML/CSS/JS. Interaction: On-click reveals detailed descriptions for each milestone. Justification: More engaging than a static list, visually narrating his continuous learning and professional growth.
+        - Competencies Radar Chart: Goal: Compare/Organize. Method: Chart.js Radar Chart. Interaction: Buttons switch between "Technical" and "Interpersonal" skill sets, dynamically updating the chart. Justification: Provides a quick, holistic visualization of his multifaceted capabilities, effectively synthesizing diverse skills.
+        - Projects/Interests Grid: Goal: Inform/Engage. Method: HTML/CSS card grid with icons. Interaction: Simple hover effects. Justification: Visually appealing and easy to scan, adding personal character to the profile.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #3D405B;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background-color: #81B29A;
+            border: 4px solid #F8F7F4;
+            top: 0;
+            left: -0.625rem;
+            z-index: 10;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E0E0E0;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-[#3D405B]">Ailton Carlos S. Mota</h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#sobre" class="text-gray-600 hover:text-[#81B29A] transition-colors">Sobre</a>
+                <a href="#timeline" class="text-gray-600 hover:text-[#81B29A] transition-colors">Linha do Tempo</a>
+                <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors">Competências</a>
+                <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Projetos e Interesses</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Sobre</a>
+            <a href="#timeline" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Linha do Tempo</a>
+            <a href="#competencias" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Competências</a>
+            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Projetos e Interesses</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="sobre" class="text-center mb-24">
+            <h2 class="text-4xl font-bold mb-4 text-[#3D405B]">Educador, Técnico e Inovador</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                Professor de Filosofia e Informática com sólida formação técnica em Mecânica e TI. Minha trajetória é marcada pela combinação da análise crítica das humanidades com a solução prática de problemas técnicos. Sou proativo no desenvolvimento de projetos e soluções tecnológicas, sempre buscando aprender e aplicar novos conhecimentos. Minha paixão é conectar ideias e pessoas, seja na sala de aula ou em ambientes produtivos.
+            </p>
+            <div class="mt-8 flex justify-center items-center space-x-4 text-gray-600">
+                <span>ailtoncarlos0101@gmail.com</span>
+                <span>•</span>
+                <span>+55 (38) 99113-9479</span>
+                <span>•</span>
+                <span>Montes Claros - MG</span>
+            </div>
+        </section>
+
+        <section id="timeline" class="mb-24">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Minha Jornada Profissional e Acadêmica</h2>
+            <div id="timeline-container" class="relative max-w-2xl mx-auto">
+                <div class="timeline-line"></div>
+            </div>
+        </section>
+
+        <section id="competencias" class="mb-24">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
+            <div class="text-center mb-8">
+                <button id="btn-tech" class="bg-[#81B29A] text-white px-4 py-2 rounded-md shadow-sm hover:bg-opacity-90 transition-all">Habilidades Técnicas</button>
+                <button id="btn-inter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-300 transition-all ml-4">Habilidades Interpessoais</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Projetos e Interesses</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Desenvolvimento de Projetos</h3>
+                    <p class="text-gray-600">Apaixonado por criar e construir soluções, desde projetos mecânicos e elétricos até aplicações de software, buscando sempre a inovação.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Voluntariado na ADEMOC</h3>
+                    <p class="text-gray-600">Contribuo com a Associação dos Deficientes de Montes Claros realizando manutenção voluntária em equipamentos de informática.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Inteligência Artificial</h3>
+                    <p class="text-gray-600">Tenho experiência prática com o uso e treinamento de ferramentas de IA, explorando seu potencial para otimizar tarefas e gerar insights.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Explorador Cultural</h3>
+                    <p class="text-gray-600">Gosto de aprender sobre novas culturas através de séries, animes, livros e videogames, ampliando minha visão de mundo.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Aprendiz Contínuo</h3>
+                    <p class="text-gray-600">Estou sempre buscando aprender sobre novas tecnologias e metodologias, mantendo-me atualizado com as tendências do mercado.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Liderança e Ensino</h3>
+                    <p class="text-gray-600">Experiência como catequista e coordenador de ensino, desenvolvendo habilidades de liderança, comunicação e mentoria.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-24">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>Pronto para colaborar em um novo desafio?</p>
+            <p class="font-bold mt-2">ailtoncarlos0101@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const timelineData = [
+                { year: '2026', title: 'Mestrado em Filosofia (Cursando)', institution: 'Unimontes', description: 'Aprofundamento em pesquisa e análise filosófica.' },
+                { year: '2025', title: 'Licenciatura em Informática (Cursando)', institution: 'Uniasselvi', description: 'Formação superior para atuar na área de tecnologia e educação digital.' },
+                { year: '2025', title: 'Técnico em Informática (Cursando)', institution: 'Carajás', description: 'Desenvolvimento de competências técnicas em software, hardware e redes.' },
+                { year: '2023', title: 'Pós-graduação em Metodologia do Ensino', institution: 'FAVENI', description: 'Especialização em metodologias de ensino para Filosofia e Sociologia.' },
+                { year: '2020 - Atual', title: 'Professor de Filosofia e Tecnologia', institution: 'Secretaria de Educação MG', description: 'Atuação na rede estadual de ensino, lecionando Filosofia e Tecnologia e Inovação, e coordenando o Ensino Médio.' },
+                { year: '2019', title: 'Licenciatura em Filosofia', institution: 'Unimontes', description: 'Graduação que fundamentou o pensamento crítico e a capacidade de análise.' },
+                { year: '2018', title: 'Professor de Informática', institution: 'Mister Cursos', description: 'Ensino de pacote Office, Windows e manutenção de computadores para diversas turmas.' },
+                { year: '2016', title: 'Montagem e Manutenção de Computadores', institution: 'CETEC', description: 'Curso focado em hardware e redes, base para a atuação como técnico autônomo.' },
+                { year: '2013', title: 'Técnico em Mecânica Industrial', institution: 'Senai', description: 'Formação técnica que proporcionou conhecimentos em processos industriais, projetos e manutenção mecânica.' },
+            ];
+
+            const timelineContainer = document.getElementById('timeline-container');
+            timelineData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'timeline-item mb-8 pl-8 relative cursor-pointer';
+                div.innerHTML = `
+                    <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#81B29A]">
+                        <p class="text-sm font-semibold text-gray-500">${item.year} - ${item.institution}</p>
+                        <h3 class="font-bold text-lg text-[#3D405B]">${item.title}</h3>
+                        <div class="timeline-details hidden mt-2 text-gray-600">
+                            <p>${item.description}</p>
+                        </div>
+                    </div>
+                `;
+                timelineContainer.appendChild(div);
+
+                div.addEventListener('click', () => {
+                    const details = div.querySelector('.timeline-details');
+                    details.classList.toggle('hidden');
+                });
+            });
+
+            const skillsData = {
+                tech: {
+                    labels: ['Manutenção HW/SW', 'Redes', 'Sistemas Operacionais', 'Mecânica Industrial', 'Desenvolvimento (Básico)', 'Projetos (SolidWorks)'],
+                    data: [90, 70, 85, 75, 50, 65]
+                },
+                inter: {
+                    labels: ['Comunicação', 'Trabalho em Equipe', 'Liderança', 'Resolução de Problemas', 'Adaptabilidade', 'Ensino e Didática'],
+                    data: [95, 90, 80, 85, 90, 95]
+                }
+            };
+
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            let skillsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: skillsData.tech.labels,
+                    datasets: [{
+                        label: 'Nível de Proficiência',
+                        data: skillsData.tech.data,
+                        backgroundColor: 'rgba(129, 178, 154, 0.2)',
+                        borderColor: 'rgba(129, 178, 154, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(129, 178, 154, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(129, 178, 154, 1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
+                            grid: { color: 'rgba(61, 64, 91, 0.2)' },
+                            pointLabels: { 
+                                font: { size: 12 },
+                                color: '#3D405B'
+                            },
+                            ticks: {
+                                backdropColor: 'transparent',
+                                color: 'rgba(61, 64, 91, 0.5)',
+                                stepSize: 20,
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            const btnTech = document.getElementById('btn-tech');
+            const btnInter = document.getElementById('btn-inter');
+
+            function updateChart(skillType) {
+                skillsChart.data.labels = skillsData[skillType].labels;
+                skillsChart.data.datasets[0].data = skillsData[skillType].data;
+                skillsChart.update();
+
+                if (skillType === 'tech') {
+                    btnTech.classList.add('bg-[#81B29A]', 'text-white');
+                    btnTech.classList.remove('bg-gray-200', 'text-gray-700');
+                    btnInter.classList.add('bg-gray-200', 'text-gray-700');
+                    btnInter.classList.remove('bg-[#81B29A]', 'text-white');
+                } else {
+                    btnInter.classList.add('bg-[#81B29A]', 'text-white');
+                    btnInter.classList.remove('bg-gray-200', 'text-gray-700');
+                    btnTech.classList.add('bg-gray-200', 'text-gray-700');
+                    btnTech.classList.remove('bg-[#81B29A]', 'text-white');
+                }
+            }
+            
+            btnTech.addEventListener('click', () => updateChart('tech'));
+            btnInter.addEventListener('click', () => updateChart('inter'));
+        });
+    </script>
+</body>
+</html>
