@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
+    <!-- Configurações básicas do documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo Interativo - Ailton Carlos Santos Mota</title>
+
+    <!-- Importação de bibliotecas externas via CDN -->
+    <!-- Tailwind CSS para estilização rápida e responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js para a criação do gráfico de radar -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts para a fonte 'Inter' -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Início dos comentários de metadados da aplicação -->
     <!-- Chosen Palette: Warm Neutrals -->
     <!-- Application Structure Plan: A single-page application designed as a narrative portfolio. It uses a sticky navigation bar (Sobre, Linha do Tempo, Competências, Projetos) to allow non-linear exploration. The structure is thematic, starting with a personal introduction, followed by an interactive timeline to visualize career progression, an interactive skills chart to synthesize diverse abilities, and a final section for projects and interests to add personality. This structure was chosen to transform a flat CV into a compelling story, highlighting the unique synergy between Ailton's philosophical, technical, and mechanical backgrounds, making his profile more engaging and understandable for recruiters. -->
     <!-- Visualization & Content Choices: 
@@ -17,12 +25,15 @@
         - Competencies Radar Chart: Goal: Compare/Organize. Method: Chart.js Radar Chart. Interaction: Buttons switch between "Technical" and "Interpersonal" skill sets, dynamically updating the chart. Justification: Provides a quick, holistic visualization of his multifaceted capabilities, effectively synthesizing diverse skills.
         - Projects/Interests Grid: Goal: Inform/Engage. Method: HTML/CSS card grid with icons. Interaction: Simple hover effects. Justification: Visually appealing and easy to scan, adding personal character to the profile.
         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    
+    <!-- Estilos CSS customizados para elementos específicos -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F8F7F4;
             color: #3D405B;
         }
+        /* Estiliza o ponto de cada item da linha do tempo */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -35,6 +46,7 @@
             left: -0.625rem;
             z-index: 10;
         }
+        /* Estiliza a linha vertical da linha do tempo */
         .timeline-line {
             position: absolute;
             left: 0;
@@ -43,6 +55,7 @@
             width: 2px;
             background-color: #E0E0E0;
         }
+        /* Estilo do container do gráfico para garantir responsividade */
         .chart-container {
             position: relative;
             width: 100%;
@@ -52,6 +65,7 @@
             height: 300px;
             max-height: 400px;
         }
+        /* Ajusta a altura do gráfico para telas maiores (desktop) */
         @media (min-width: 768px) {
             .chart-container {
                 height: 400px;
@@ -61,23 +75,29 @@
 </head>
 <body class="antialiased">
 
+    <!-- Cabeçalho (Header) com navegação -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Título/Nome no canto esquerdo -->
             <div>
                 <h1 class="text-xl font-bold text-[#3D405B]">Ailton Carlos S. Mota</h1>
             </div>
+            <!-- Menu de navegação para telas maiores (desktop) -->
             <div class="hidden md:flex space-x-8">
                 <a href="#sobre" class="text-gray-600 hover:text-[#81B29A] transition-colors">Sobre</a>
                 <a href="#timeline" class="text-gray-600 hover:text-[#81B29A] transition-colors">Linha do Tempo</a>
                 <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors">Competências</a>
                 <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Projetos e Interesses</a>
             </div>
+            <!-- Botão do menu para telas menores (mobile) -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <!-- Ícone de menu (hambúrguer) -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
+        <!-- Menu mobile que é exibido ao clicar no botão -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#sobre" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Sobre</a>
             <a href="#timeline" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Linha do Tempo</a>
@@ -86,12 +106,15 @@
         </div>
     </header>
 
+    <!-- Conteúdo principal (Main) -->
     <main class="container mx-auto px-6 py-12">
+        <!-- Seção "Sobre" - Introdução e descrição geral -->
         <section id="sobre" class="text-center mb-24">
             <h2 class="text-4xl font-bold mb-4 text-[#3D405B]">Educador, Técnico e Inovador</h2>
             <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
                 Professor de Filosofia e Informática com sólida formação técnica em Mecânica e TI. Minha trajetória é marcada pela combinação da análise crítica das humanidades com a solução prática de problemas técnicos. Sou proativo no desenvolvimento de projetos e soluções tecnológicas, sempre buscando aprender e aplicar novos conhecimentos. Minha paixão é conectar ideias e pessoas, seja na sala de aula ou em ambientes produtivos.
             </p>
+            <!-- Informações de contato -->
             <div class="mt-8 flex justify-center items-center space-x-4 text-gray-600">
                 <span>ailtoncarlos0101@gmail.com</span>
                 <span>•</span>
@@ -101,27 +124,35 @@
             </div>
         </section>
 
+        <!-- Seção "Linha do Tempo" - Jornada profissional e acadêmica -->
         <section id="timeline" class="mb-24">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Minha Jornada Profissional e Acadêmica</h2>
+            <!-- Container onde a linha do tempo será gerada pelo JavaScript -->
             <div id="timeline-container" class="relative max-w-2xl mx-auto">
                 <div class="timeline-line"></div>
             </div>
         </section>
 
+        <!-- Seção "Competências" - Gráfico interativo de habilidades -->
         <section id="competencias" class="mb-24">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
+            <!-- Botões para alternar entre as habilidades técnicas e interpessoais -->
             <div class="text-center mb-8">
                 <button id="btn-tech" class="bg-[#81B29A] text-white px-4 py-2 rounded-md shadow-sm hover:bg-opacity-90 transition-all">Habilidades Técnicas</button>
                 <button id="btn-inter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-300 transition-all ml-4">Habilidades Interpessoais</button>
             </div>
+            <!-- Container do gráfico de radar -->
             <div class="chart-container">
                 <canvas id="skillsChart"></canvas>
             </div>
         </section>
 
+        <!-- Seção "Projetos e Interesses" - Cards de informações -->
         <section id="projetos">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Projetos e Interesses</h2>
+            <!-- Grid de cards que se adapta a diferentes tamanhos de tela -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Card de exemplo -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
                     <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Desenvolvimento de Projetos</h3>
                     <p class="text-gray-600">Apaixonado por criar e construir soluções, desde projetos mecânicos e elétricos até aplicações de software, buscando sempre a inovação.</p>
@@ -150,6 +181,7 @@
         </section>
     </main>
 
+    <!-- Rodapé (Footer) -->
     <footer class="bg-gray-800 text-white mt-24">
         <div class="container mx-auto px-6 py-8 text-center">
             <p>Pronto para colaborar em um novo desafio?</p>
@@ -157,15 +189,22 @@
         </div>
     </footer>
 
+    <!-- Script JavaScript para interatividade -->
     <script>
+        // Aguarda o carregamento completo do DOM antes de executar o script
         document.addEventListener('DOMContentLoaded', () => {
+
+            /* Lógica do Menu Mobile */
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
 
             menuBtn.addEventListener('click', () => {
+                // Alterna a classe 'hidden' para mostrar ou esconder o menu mobile
                 mobileMenu.classList.toggle('hidden');
             });
 
+            /* Dados e Lógica da Linha do Tempo */
+            // Array de objetos com os dados da sua jornada
             const timelineData = [
                 { year: '2026', title: 'Mestrado em Filosofia (Cursando)', institution: 'Unimontes', description: 'Aprofundamento em pesquisa e análise filosófica.' },
                 { year: '2025', title: 'Licenciatura em Informática (Cursando)', institution: 'Uniasselvi', description: 'Formação superior para atuar na área de tecnologia e educação digital.' },
@@ -179,6 +218,7 @@
             ];
 
             const timelineContainer = document.getElementById('timeline-container');
+            // Itera sobre o array 'timelineData' para criar dinamicamente os itens
             timelineData.forEach(item => {
                 const div = document.createElement('div');
                 div.className = 'timeline-item mb-8 pl-8 relative cursor-pointer';
@@ -193,12 +233,15 @@
                 `;
                 timelineContainer.appendChild(div);
 
+                // Adiciona um evento de clique para mostrar/esconder a descrição
                 div.addEventListener('click', () => {
                     const details = div.querySelector('.timeline-details');
                     details.classList.toggle('hidden');
                 });
             });
 
+            /* Dados e Lógica do Gráfico de Habilidades */
+            // Objeto com os dados para as habilidades técnicas e interpessoais
             const skillsData = {
                 tech: {
                     labels: ['Manutenção HW/SW', 'Redes', 'Sistemas Operacionais', 'Mecânica Industrial', 'Desenvolvimento (Básico)', 'Projetos (SolidWorks)'],
@@ -228,7 +271,7 @@
                     }]
                 },
                 options: {
-                    maintainAspectRatio: false,
+                    maintainAspectRatio: false, // Permite que o gráfico se adapte ao container
                     scales: {
                         r: {
                             angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
@@ -248,7 +291,7 @@
                     },
                     plugins: {
                         legend: {
-                            display: false
+                            display: false // Oculta a legenda, pois só há um dataset
                         }
                     }
                 }
@@ -257,11 +300,13 @@
             const btnTech = document.getElementById('btn-tech');
             const btnInter = document.getElementById('btn-inter');
 
+            // Função para atualizar os dados do gráfico ao clicar nos botões
             function updateChart(skillType) {
                 skillsChart.data.labels = skillsData[skillType].labels;
                 skillsChart.data.datasets[0].data = skillsData[skillType].data;
                 skillsChart.update();
 
+                // Atualiza a aparência dos botões
                 if (skillType === 'tech') {
                     btnTech.classList.add('bg-[#81B29A]', 'text-white');
                     btnTech.classList.remove('bg-gray-200', 'text-gray-700');
@@ -275,6 +320,7 @@
                 }
             }
             
+            // Adiciona os eventos de clique aos botões
             btnTech.addEventListener('click', () => updateChart('tech'));
             btnInter.addEventListener('click', () => updateChart('inter'));
         });
