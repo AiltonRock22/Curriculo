@@ -13,13 +13,14 @@
     
     <!-- Metadados da Aplicação -->
     <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A single-page application based on the reorganized curriculum. The navigation is updated to 'Sobre', 'Experiência', 'Formação', 'Cursos', and 'Habilidades'. The structure maintains separate sections for professional experience, education, and courses, but now uses a consistent card-based layout for both 'Formação' and 'Cursos' to improve visual similarity. The skills section uses a dynamic radar chart to visually represent proficiency levels. This structure provides clearer segmentation and a more engaging visualization of skills. -->
+    <!-- Application Structure Plan: A single-page application with a navigation bar that includes a new "Projetos" section. This new section features cards with links to external projects, demonstrating the user's practical work. The structure maintains a clear separation between professional experience, education, and skills, with the new project section at the end to showcase portfolio items. -->
     <!-- Visualization & Content Choices:
         - Hero Section (Sobre): Goal: Inform. Method: Text. Justification: Direct and personal introduction.
         - Experience Section (Experiência): Goal: Show Change. Method: Interactive Vertical Timeline (HTML/CSS/JS). Interaction: Click to expand details. Justification: Narrates professional history effectively.
         - Education Section (Formação): Goal: Organize/Inform. Method: Card Grid (HTML/CSS). Justification: Highlights academic and technical degrees in a visually clean and organized manner.
         - Courses Section (Cursos): Goal: Inform. Method: Card Grid (HTML/CSS). Justification: Aligns with the design of the 'Formação' section for a consistent user experience.
-        - Skills Section (Habilidades): Goal: Compare/Organize. Method: Radar Chart (Chart.js). Justification: Provides a dynamic, multidimensional view of skills, making it easy to compare proficiency across different areas.
+        - Skills Section (Competências): Goal: Compare/Organize. Method: Radar Chart (Chart.js). Justification: Provides a dynamic, multidimensional view of skills, making it easy to compare proficiency across different areas.
+        - Projects Section (Projetos): Goal: Showcase Work. Method: Card Grid with External Links. Justification: This new section allows the user to link directly to their portfolio, hosted on platforms like GitHub, providing concrete examples of their skills.
         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <!-- Estilos CSS customizados -->
@@ -52,10 +53,16 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 700px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            height: 400px;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+             .chart-container {
+                 height: 400px;
+             }
         }
     </style>
 </head>
@@ -72,7 +79,8 @@
                 <a href="#experiencia" class="text-gray-600 hover:text-[#81B29A] transition-colors">Experiência</a>
                 <a href="#formacao" class="text-gray-600 hover:text-[#81B29A] transition-colors">Formação</a>
                 <a href="#cursos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Cursos</a>
-                <a href="#habilidades" class="text-gray-600 hover:text-[#81B29A] transition-colors">Habilidades</a>
+                <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors">Competências</a>
+                <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Projetos</a>
             </div>
             <div class="md:hidden">
                 <button id="menu-btn" class="text-gray-600 focus:outline-none">
@@ -85,7 +93,8 @@
             <a href="#experiencia" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Experiência</a>
             <a href="#formacao" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Formação</a>
             <a href="#cursos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Cursos</a>
-            <a href="#habilidades" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Habilidades</a>
+            <a href="#competencias" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Competências</a>
+            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Projetos</a>
         </div>
     </header>
 
@@ -123,16 +132,7 @@
             </div>
         </section>
 
-        <!-- Seção Habilidades e Conhecimentos -->
-        <section id="habilidades" class="mb-20">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Habilidades e Competências</h2>
-            <div class="chart-container">
-                <canvas id="skillsChart"></canvas>
-            </div>
-        </section>
-    </main>
-
-            <!-- Seção "Competências" - Gráfico interativo de habilidades -->
+        <!-- Seção Competências - Gráfico interativo de habilidades -->
         <section id="competencias" class="mb-24">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
             <!-- Botões para alternar entre as habilidades técnicas e interpessoais -->
@@ -145,41 +145,32 @@
                 <canvas id="skillsChart"></canvas>
             </div>
         </section>
-
-        <!-- Seção "Projetos e Interesses" - Cards de informações -->
-        <section id="projetos">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Projetos e Interesses</h2>
-            <!-- Grid de cards que se adapta a diferentes tamanhos de tela -->
+        
+        <!-- Nova Seção de Projetos com links -->
+        <section id="projetos" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Projetos</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Card de exemplo -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Desenvolvimento de Projetos</h3>
-                    <p class="text-gray-600">Apaixonado por criar e construir soluções, desde projetos mecânicos e elétricos até aplicações de software, buscando sempre a inovação.</p>
+                <!-- Card de Exemplo 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
+                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">Sistema de Gerenciamento de Tarefas</h3>
+                    <p class="text-gray-600 mt-2 flex-grow">Um projeto web simples para organizar e gerenciar tarefas diárias. Construído com HTML, CSS e JavaScript puro.</p>
+                    <a href="https://github.com/ailtoncarlos/projeto-gerenciador-tarefas" target="_blank" class="mt-4 inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">Ver no GitHub</a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Voluntariado na ADEMOC</h3>
-                    <p class="text-gray-600">Contribuo com a Associação dos Deficientes de Montes Claros realizando manutenção voluntária em equipamentos de informática.</p>
+                <!-- Card de Exemplo 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
+                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">Site Interativo de Portfólio</h3>
+                    <p class="text-gray-600 mt-2 flex-grow">Uma versão mais elaborada de um currículo interativo, com animações e diferentes seções. Demonstrando competências em design e front-end.</p>
+                    <a href="https://github.com/ailtoncarlos/projeto-portfolio-interativo" target="_blank" class="mt-4 inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">Ver no GitHub</a>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Inteligência Artificial</h3>
-                    <p class="text-gray-600">Tenho experiência prática com o uso e treinamento de ferramentas de IA, explorando seu potencial para otimizar tarefas e gerar insights.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Explorador Cultural</h3>
-                    <p class="text-gray-600">Gosto de aprender sobre novas culturas através de séries, animes, livros e videogames, ampliando minha visão de mundo.</p>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Aprendiz Contínuo</h3>
-                    <p class="text-gray-600">Estou sempre buscando aprender sobre novas tecnologias e metodologias, mantendo-me atualizado com as tendências do mercado.</p>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                    <h3 class="font-bold text-lg mb-2 text-[#E07A5F]">Liderança e Ensino</h3>
-                    <p class="text-gray-600">Experiência como catequista e coordenador de ensino, desenvolvendo habilidades de liderança, comunicação e mentoria.</p>
+                <!-- Card de Exemplo 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
+                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">Análise de Dados com Python</h3>
+                    <p class="text-gray-600 mt-2 flex-grow">Um estudo de caso usando a biblioteca Pandas para analisar um conjunto de dados e gerar visualizações com Matplotlib.</p>
+                    <a href="https://github.com/ailtoncarlos/projeto-analise-dados-python" target="_blank" class="mt-4 inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">Ver no GitHub</a>
                 </div>
             </div>
         </section>
     </main>
-
 
     <!-- Rodapé -->
     <footer class="bg-gray-800 text-white">
@@ -223,10 +214,16 @@
             ];
 
             const skillsData = {
-                labels: ['Manutenção de Hardware/Software', 'Sistemas Operacionais', 'Suítes Office', 'Comunicação', 'Trabalho em Equipe'],
-                values: [90, 90, 95, 85, 90] // Proficiência em %
+                tech: {
+                    labels: ['Manutenção HW/SW', 'Sistemas Operacionais', 'Mecânica Industrial', 'Redes', 'Suítes Office'],
+                    data: [90, 85, 75, 70, 95]
+                },
+                inter: {
+                    labels: ['Comunicação', 'Trabalho em Equipe', 'Liderança', 'Resolução de Problemas', 'Adaptabilidade'],
+                    data: [95, 90, 80, 85, 90]
+                }
             };
-
+            
             // Renderização da Jornada Profissional
             const timelineContainer = document.getElementById('timeline-container');
             professionalData.forEach(item => {
@@ -265,55 +262,72 @@
                 coursesContainer.appendChild(div);
             });
 
-            // Renderização do Gráfico de Habilidades
+            // Renderização e lógica do Gráfico de Habilidades
             const ctx = document.getElementById('skillsChart').getContext('2d');
-            new Chart(ctx, {
+            const btnTech = document.getElementById('btn-tech');
+            const btnInter = document.getElementById('btn-inter');
+
+            let skillsChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: skillsData.labels,
+                    labels: skillsData.tech.labels,
                     datasets: [{
-                        label: 'Proficiência (%)',
-                        data: skillsData.values,
+                        label: 'Nível de Proficiência',
+                        data: skillsData.tech.data,
                         backgroundColor: 'rgba(129, 178, 154, 0.4)',
                         borderColor: 'rgba(129, 178, 154, 1)',
+                        borderWidth: 2,
                         pointBackgroundColor: 'rgba(129, 178, 154, 1)',
                         pointBorderColor: '#fff',
                         pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(129, 178, 154, 1)',
-                        borderWidth: 2
+                        pointHoverBorderColor: 'rgba(129, 178, 154, 1)'
                     }]
                 },
                 options: {
                     maintainAspectRatio: false,
                     scales: {
                         r: {
-                            angleLines: { color: 'rgba(0,0,0,0.1)' },
-                            grid: { color: 'rgba(0,0,0,0.1)' },
-                            pointLabels: {
-                                font: { size: 14, weight: 'bold' },
+                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
+                            grid: { color: 'rgba(61, 64, 91, 0.2)' },
+                            pointLabels: { 
+                                font: { size: 12 },
                                 color: '#3D405B'
                             },
                             ticks: {
-                                display: false,
+                                backdropColor: 'transparent',
+                                color: 'rgba(61, 64, 91, 0.5)',
+                                stepSize: 20,
+                                beginAtZero: true,
                                 max: 100
                             }
                         }
                     },
                     plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) { label += ': '; }
-                                    label += Math.round(context.parsed.r) + '%';
-                                    return label;
-                                }
-                            }
-                        }
+                        legend: { display: false }
                     }
                 }
             });
+
+            function updateChart(skillType) {
+                skillsChart.data.labels = skillsData[skillType].labels;
+                skillsChart.data.datasets[0].data = skillsData[skillType].data;
+                skillsChart.update();
+
+                if (skillType === 'tech') {
+                    btnTech.classList.add('bg-[#81B29A]', 'text-white');
+                    btnTech.classList.remove('bg-gray-200', 'text-gray-700');
+                    btnInter.classList.add('bg-gray-200', 'text-gray-700');
+                    btnInter.classList.remove('bg-[#81B29A]', 'text-white');
+                } else {
+                    btnInter.classList.add('bg-[#81B29A]', 'text-white');
+                    btnInter.classList.remove('bg-gray-200', 'text-gray-700');
+                    btnTech.classList.add('bg-gray-200', 'text-gray-700');
+                    btnTech.classList.remove('bg-[#81B29A]', 'text-white');
+                }
+            }
+            
+            btnTech.addEventListener('click', () => updateChart('tech'));
+            btnInter.addEventListener('click', () => updateChart('inter'));
         });
     </script>
 </body>
