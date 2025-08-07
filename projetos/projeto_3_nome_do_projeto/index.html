@@ -1,69 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas Colaborativa</title>
-    <!-- Link para o seu arquivo CSS. -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <!-- CONTAINER PRINCIPAL DO APP -->
-    <!-- Este elemento centraliza todo o conteúdo na página. -->
-    <div id="app">
-        
-        <!-- SEÇÃO DE LOGIN E REGISTRO -->
-        <!-- Esta seção será mostrada por padrão para usuários não logados. -->
-        <section id="auth-container" class="container">
-            <h2>Bem-vindo!</h2>
-            <form id="login-form">
-                <input type="email" id="login-email" placeholder="E-mail" required>
-                <input type="password" id="login-password" placeholder="Senha" required>
-                <button type="submit">Entrar</button>
-            </form>
-            <p>
-                Não tem uma conta? 
-                <button id="show-register">Cadastre-se</button>
-            </p>
+<body class="antialiased"> <div id="app" class="container mx-auto px-6 py-12"> <section id="auth-container" class="card p-8 mb-8 text-center"> <h2 class="text-3xl font-bold mb-4 text-[#3D405B]">Bem-vindo!</h2> <form id="login-form" class="space-y-4"> <input type="email" id="login-email" placeholder="E-mail" required class="block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#81B29A]"> <input type="password" id="login-password" placeholder="Senha" required class="block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#81B29A]"> <button type="submit" class="btn btn-primary w-full">Entrar</button> </form>
+            <p class="mt-4 text-gray-600">
+                Não tem uma conta?
+                <button id="show-register" class="text-[#81B29A] hover:underline font-semibold">Cadastre-se</button> </p>
         </section>
-        
-        <!-- SEÇÃO DE REGISTRO (ESCONDIDA POR PADRÃO) -->
-        <section id="register-container" class="container" style="display:none;">
-            <h2>Criar uma nova conta</h2>
-            <form id="register-form">
-                <input type="email" id="register-email" placeholder="E-mail" required>
-                <input type="password" id="register-password" placeholder="Senha" required>
-                <button type="submit">Cadastrar</button>
+
+        <section id="register-container" class="card p-8 mb-8 text-center" style="display:none;"> <h2 class="text-3xl font-bold mb-4 text-[#3D405B]">Criar uma nova conta</h2>
+            <form id="register-form" class="space-y-4">
+                <input type="email" id="register-email" placeholder="E-mail" required class="block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#81B29A]">
+                <input type="password" id="register-password" placeholder="Senha" required class="block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#81B29A]">
+                <button type="submit" class="btn btn-primary w-full">Cadastrar</button>
             </form>
-            <p>
-                Já tem uma conta? 
-                <button id="show-login">Fazer login</button>
+            <p class="mt-4 text-gray-600">
+                Já tem uma conta?
+                <button id="show-login" class="text-[#81B29A] hover:underline font-semibold">Fazer login</button>
             </p>
         </section>
 
-        <!-- SEÇÃO PRINCIPAL DO APLICATIVO (ESCONDIDA POR PADRÃO) -->
-        <!-- Esta seção será mostrada apenas após o login. -->
-        <section id="todo-container" class="container" style="display:none;">
-            <div class="header">
-                <h2 id="welcome-message">Minhas Tarefas</h2>
-                <button id="logout-button">Sair</button>
+        <section id="todo-container" class="card p-8" style="display:none;"> <div class="flex justify-between items-center mb-6"> <h2 id="welcome-message" class="text-3xl font-bold text-[#3D405B]">Minhas Tarefas</h2>
+                <button id="logout-button" class="btn btn-secondary">Sair</button>
             </div>
-            
-            <form id="new-task-form">
-                <input type="text" id="new-task-input" placeholder="Adicionar nova tarefa..." required>
-                <button type="submit">Adicionar</button>
+
+            <form id="new-task-form" class="flex gap-2 mb-6"> <input type="text" id="new-task-input" placeholder="Adicionar nova tarefa..." required class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#81B29A]"> <button type="submit" class="btn btn-primary">Adicionar</button>
             </form>
 
-            <!-- A LISTA DE TAREFAS SERÁ RENDERIZADA AQUI PELO JAVASCRIPT -->
-            <ul id="task-list"></ul>
-        </section>
+            <ul id="task-list" class="space-y-3"></ul> </section>
 
     </div>
 
-    <!-- SCRIPTS DO FIREBASE -->
-    <!-- É crucial carregar as bibliotecas do Firebase aqui, antes do seu app.js. -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -80,8 +51,7 @@
       // Inicializa o Firebase com suas configurações.
       firebase.initializeApp(firebaseConfig);
     </script>
-    
-    <!-- SEU ARQUIVO JAVASCRIPT PRINCIPAL -->
+
     <script src="app.js"></script>
 </body>
 </html>
