@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <!-- Configurações básicas do documento -->
+    <!-- Configurações básicas da página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo Interativo - Ailton Carlos Santos Mota</title>
+    <title>Meu Currículo - Ailton Carlos S. Mota</title>
 
-    <!-- Importação de bibliotecas externas via CDN -->
+    <!-- Importando Tailwind CSS para estilização e Chart.js para o gráfico de habilidades -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Fonte "Inter" do Google Fonts para um visual moderno e limpo -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Metadados da Aplicação -->
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A single-page application based on the reorganized curriculum. The navigation is updated to 'Sobre', 'Experiência', 'Formação', 'Cursos', and 'Habilidades'. The structure maintains separate sections for professional experience, education, and courses, but now uses a consistent card-based layout for both 'Formação' and 'Cursos' to improve visual similarity. The skills section uses a dynamic radar chart to visually represent proficiency levels. This structure provides clearer segmentation and a more engaging visualization of skills. -->
-    <!-- Visualization & Content Choices:
-        - Hero Section (Sobre): Goal: Inform. Method: Text. Justification: Direct and personal introduction.
-        - Experience Section (Experiência): Goal: Show Change. Method: Interactive Vertical Timeline (HTML/CSS/JS). Interaction: Click to expand details. Justification: Narrates professional history effectively.
-        - Education Section (Formação): Goal: Organize/Inform. Method: Card Grid (HTML/CSS). Justification: Highlights academic and technical degrees in a visually clean and organized manner.
-        - Courses Section (Cursos): Goal: Inform. Method: Card Grid (HTML/CSS). Justification: Aligns with the design of the 'Formação' section for a consistent user experience.
-        - Skills Section (Habilidades): Goal: Compare/Organize. Method: Radar Chart (Chart.js). Justification: Provides a dynamic, multidimensional view of skills, making it easy to compare proficiency across different areas.
-        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
-    <!-- Estilos CSS customizados -->
+    <!-- Estilos personalizados para o timeline e o gráfico -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F7F4;
-            color: #3D405B;
+            background-color: #F8F7F4; /* Fundo creme claro */
+            color: #3D405B; /* Texto principal em azul escuro */
         }
+        /* Estilização do ponto no timeline */
         .timeline-item::before {
             content: '';
             position: absolute;
             width: 1.25rem;
             height: 1.25rem;
             border-radius: 50%;
-            background-color: #81B29A;
+            background-color: #81B29A; /* Cor do acento verde-azulado */
             border: 4px solid #F8F7F4;
             top: 0;
             left: -0.625rem;
             z-index: 10;
         }
+        /* Linha vertical do timeline */
         .timeline-line {
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
             width: 2px;
-            background-color: #E0E0E0;
+            background-color: #E0E0E0; /* Cinza claro */
         }
+        /* Container para o gráfico, garantindo que seja responsivo */
         .chart-container {
             position: relative;
             width: 100%;
@@ -67,35 +60,40 @@
 </head>
 <body class="antialiased">
 
-    <!-- Cabeçalho com Navegação -->
+    <!-- Cabeçalho com o menu de navegação -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
                 <h1 class="text-xl font-bold text-[#3D405B]">Ailton Carlos S. Mota</h1>
             </div>
+            <!-- Menu para telas grandes -->
             <div class="hidden md:flex space-x-6">
                 <a href="#sobre" class="text-gray-600 hover:text-[#81B29A] transition-colors">Sobre</a>
                 <a href="#experiencia" class="text-gray-600 hover:text-[#81B29A] transition-colors">Experiência</a>
                 <a href="#formacao" class="text-gray-600 hover:text-[#81B29A] transition-colors">Formação</a>
                 <a href="#cursos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Cursos</a>
                 <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors">Competências</a>
+                <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Projetos</a>
             </div>
+            <!-- Botão do menu para mobile -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
+        <!-- Menu mobile -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#sobre" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Sobre</a>
             <a href="#experiencia" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Experiência</a>
             <a href="#formacao" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Formação</a>
             <a href="#cursos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Cursos</a>
             <a href="#competencias" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Competências</a>
+            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Projetos</a>
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
+    <!-- Conteúdo principal da página -->
     <main class="container mx-auto px-6 py-12">
         <!-- Seção Sobre -->
         <section id="sobre" class="text-center mb-20">
@@ -105,7 +103,7 @@
             </p>
         </section>
 
-        <!-- Seção Jornada Profissional -->
+        <!-- Seção de Experiência Profissional em formato de timeline -->
         <section id="experiencia" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Jornada Profissional</h2>
             <div id="timeline-container" class="relative max-w-2xl mx-auto">
@@ -113,33 +111,41 @@
             </div>
         </section>
 
-        <!-- Seção Formação Acadêmica e Técnica -->
+        <!-- Seção de Formação Acadêmica e Técnica -->
         <section id="formacao" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Formação Acadêmica e Técnica</h2>
             <div id="education-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Conteúdo gerado via JS -->
+                <!-- Cards de formação serão gerados aqui via JavaScript -->
             </div>
         </section>
 
-        <!-- Seção Cursos e Qualificações Adicionais -->
+        <!-- Seção de Cursos e Qualificações Adicionais -->
         <section id="cursos" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Cursos e Qualificações Adicionais</h2>
             <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Conteúdo gerado via JS -->
+                <!-- Cards de cursos serão gerados aqui via JavaScript -->
             </div>
         </section>
 
-        <!-- Seção Competências - Gráfico interativo de habilidades -->
+        <!-- Seção de Competências com gráfico de radar interativo -->
         <section id="competencias" class="mb-24">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
-            <!-- Botões para alternar entre as habilidades técnicas e interpessoais -->
+            <!-- Botões para trocar o tipo de habilidade no gráfico -->
             <div class="text-center mb-8">
                 <button id="btn-tech" class="bg-[#81B29A] text-white px-4 py-2 rounded-md shadow-sm hover:bg-opacity-90 transition-all">Habilidades Técnicas</button>
                 <button id="btn-inter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-300 transition-all ml-4">Habilidades Interpessoais</button>
             </div>
-            <!-- Container do gráfico de radar -->
+            <!-- Canvas para o gráfico -->
             <div class="chart-container">
                 <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+        
+        <!-- Nova Seção de Projetos com links -->
+        <section id="projetos" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Meus Projetos</h2>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Os cards de projetos serão gerados aqui via JavaScript -->
             </div>
         </section>
     </main>
@@ -152,10 +158,10 @@
         </div>
     </footer>
 
-    <!-- Script JavaScript -->
+    <!-- Script JavaScript para carregar os dados e a funcionalidade -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica do Menu Mobile
+            // Lógica para mostrar/esconder o menu mobile
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             menuBtn.addEventListener('click', () => {
@@ -196,45 +202,71 @@
                 }
             };
             
-            // Renderização da Jornada Profissional
-            const timelineContainer = document.getElementById('timeline-container');
-            professionalData.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'timeline-item mb-8 pl-8 relative';
-                div.innerHTML = `
+            const projectsData = [
+                { 
+                    title: 'Projeto 1', 
+                    description: 'Uma breve descrição sobre o seu primeiro projeto. Explique o que ele faz e quais tecnologias foram usadas.',
+                    link: 'https://github.com/seu-usuario/seu-projeto-1'
+                },
+                { 
+                    title: 'Projeto 2', 
+                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
+                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                },
+                { 
+                    title: 'Projeto 3', 
+                    description: 'O que você fez no seu terceiro projeto? Adicione detalhes e um link para que as pessoas possam ver o resultado.',
+                    link: 'https://github.com/seu-usuario/seu-projeto-3'
+                }
+            ];
+
+            // Renderização dinâmica dos cards
+            function renderCards(containerId, data, templateFn) {
+                const container = document.getElementById(containerId);
+                data.forEach(item => {
+                    const html = templateFn(item);
+                    container.insertAdjacentHTML('beforeend', html);
+                });
+            }
+
+            // Templates para os cards
+            const timelineTemplate = (item) => `
+                <div class="timeline-item mb-8 pl-8 relative">
                     <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#81B29A]">
                         <p class="text-sm font-semibold text-gray-500">${item.period}</p>
                         <h3 class="font-bold text-lg text-[#3D405B]">${item.title}</h3>
                         <p class="text-gray-600">${item.company}</p>
-                    </div>`;
-                timelineContainer.appendChild(div);
-            });
+                    </div>
+                </div>`;
 
-            // Renderização da Formação
-            const educationContainer = document.getElementById('education-container');
-            educationData.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col';
-                div.innerHTML = `
+            const educationTemplate = (item) => `
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
                     <h3 class="font-bold text-lg text-[#3D405B] flex-grow">${item.level}</h3>
                     <p class="text-gray-600 mt-2">${item.institution}</p>
-                    <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.conclusion}</p>`;
-                educationContainer.appendChild(div);
-            });
+                    <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.conclusion}</p>
+                </div>`;
 
-            // Renderização dos Cursos
-            const coursesContainer = document.getElementById('courses-container');
-            coursesData.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col';
-                div.innerHTML = `
+            const coursesTemplate = (item) => `
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
                     <h3 class="font-bold text-lg text-[#3D405B] flex-grow">${item.name}</h3>
                     <p class="text-gray-600 mt-2">${item.institution}</p>
-                    <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.year}</p>`;
-                coursesContainer.appendChild(div);
-            });
+                    <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.year}</p>
+                </div>`;
 
-            // Renderização e lógica do Gráfico de Habilidades
+            const projectsTemplate = (item) => `
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
+                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">${item.title}</h3>
+                    <p class="text-gray-600 mt-2 flex-grow">${item.description}</p>
+                    <a href="${item.link}" target="_blank" class="mt-4 inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">Ver Projeto</a>
+                </div>`;
+
+            // Chama a função para renderizar cada seção
+            renderCards('timeline-container', professionalData, timelineTemplate);
+            renderCards('education-container', educationData, educationTemplate);
+            renderCards('courses-container', coursesData, coursesTemplate);
+            renderCards('projects-container', projectsData, projectsTemplate);
+
+            // Lógica para o Gráfico de Habilidades
             const ctx = document.getElementById('skillsChart').getContext('2d');
             const btnTech = document.getElementById('btn-tech');
             const btnInter = document.getElementById('btn-inter');
