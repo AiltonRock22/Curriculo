@@ -37,5 +37,7 @@ LinkedIn: [Seu perfil do LinkedIn aqui]
 
 GitHub: [Seu perfil do GitHub aqui]
 
+alterado agora 
+
 📜 Licença
 Este projeto é de código aberto e está sob a licença MIT. Sinta-se à vontade para inspecionar, copiar ou adaptar o código para seu próprio uso.
