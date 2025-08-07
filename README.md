@@ -26,13 +26,6 @@ Visualização de Habilidades: Um gráfico de radar dinâmico na seção de comp
 
 Design Responsivo: O layout se adapta perfeitamente a diferentes tamanhos de tela, garantindo uma ótima experiência de uso em dispositivos móveis e desktops.
 
-▶️ Como Executar o Projeto
-Clone este repositório para sua máquina local.
-
-git clone https://github.com/seu-usuario/seu-repositorio.git
-
-Abra o arquivo index.html em seu navegador de preferência.
-
 💡 Próximos Passos
 Tenho planos de expandir este projeto, incluindo:
 
@@ -47,4 +40,4 @@ Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade 
 
 Email: ailtoncarlos0101@gmail.com
 
-LinkedIn: [Link para o seu LinkedIn]
+LinkedIn: <b>(UM dia coloco)<b/>
