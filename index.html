@@ -9,50 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F8F7F4; /* Fundo creme claro */
-            color: #3D405B; /* Texto principal em azul escuro */
-        }
-        /* Estilização do ponto no timeline */
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 1.25rem;
-            height: 1.25rem;
-            border-radius: 50%;
-            background-color: #81B29A; /* Cor do acento verde-azulado */
-            border: 4px solid #F8F7F4;
-            top: 0;
-            left: -0.625rem;
-            z-index: 10;
-        }
-        /* Linha vertical do timeline */
-        .timeline-line {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #E0E0E0; /* Cinza claro */
-        }
-        /* Container para o gráfico, garantindo que seja responsivo */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-             .chart-container {
-                 height: 400px;
-             }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body class="antialiased">
 
@@ -102,13 +59,13 @@
 
         <section id="formacao" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Formação Acadêmica e Técnica</h2>
-            <div id="education-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div id="education-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 </div>
         </section>
 
         <section id="cursos" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Cursos e Qualificações Adicionais</h2>
-            <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 </div>
         </section>
 
@@ -245,15 +202,15 @@
 
             const educationTemplate = (item) => `
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
-                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">${item.level}</h3>
-                    <p class="text-gray-600 mt-2">${item.institution}</p>
+                    <h3 class="font-bold text-lg text-[#3D405B] mb-2 flex-grow">${item.level}</h3>
+                    <p class="text-gray-600 text-sm mb-2">${item.institution}</p>
                     <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.conclusion}</p>
                 </div>`;
 
             const coursesTemplate = (item) => `
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
-                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">${item.name}</h3>
-                    <p class="text-gray-600 mt-2">${item.institution}</p>
+                    <h3 class="font-bold text-lg text-[#3D405B] mb-2 flex-grow">${item.name}</h3>
+                    <p class="text-gray-600 text-sm mb-2">${item.institution}</p>
                     <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.year}</p>
                 </div>`;
 
