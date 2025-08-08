@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Currículo - Ailton Carlos S. Mota</title>
+    <meta name="description" content="Currículo online de Ailton Carlos S. Mota: Professor de Filosofia e Informática, Especialista em Manutenção de Hardware e Software, Desenvolvedor Front-end. Projetos e experiência em educação e tecnologia.">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -11,90 +12,119 @@
     
     <link rel="stylesheet" href="style.css"> 
 </head>
-<body class="antialiased">
+<body class="antialiased font-inter text-gray-800">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-md">
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
                 <h1 class="text-xl font-bold text-[#3D405B]">Ailton Carlos S. Mota</h1>
             </div>
             <div class="hidden md:flex space-x-6">
-                <a href="#sobre" class="text-gray-600 hover:text-[#81B29A] transition-colors">Sobre</a>
-                <a href="#experiencia" class="text-gray-600 hover:text-[#81B29A] transition-colors">Experiência</a>
-                <a href="#formacao" class="text-gray-600 hover:text-[#81B29A] transition-colors">Formação</a>
-                <a href="#cursos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Cursos</a>
-                <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors">Competências</a>
-                <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Projetos</a>
+                <a href="#sobre" class="text-gray-600 hover:text-[#81B29A] transition-colors duration-300">Sobre</a>
+                <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors duration-300">Competências</a>
+                <a href="#experiencia" class="text-gray-600 hover:text-[#81B29A] transition-colors duration-300">Experiência</a>
+                <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors duration-300">Projetos</a>
+                <a href="#formacao" class="text-gray-600 hover:text-[#81B29A] transition-colors duration-300">Formação</a>
+                <a href="#cursos" class="text-gray-600 hover:text-[#81B29A] transition-colors duration-300">Cursos</a>
             </div>
             <div class="md:hidden">
-                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none p-2 rounded-md hover:bg-gray-100">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Sobre</a>
-            <a href="#experiencia" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Experiência</a>
-            <a href="#formacao" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Formação</a>
-            <a href="#cursos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Cursos</a>
-            <a href="#competencias" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Competências</a>
-            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Projetos</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
+            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Sobre</a>
+            <a href="#competencias" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Competências</a>
+            <a href="#experiencia" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Experiência</a>
+            <a href="#projetos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Projetos</a>
+            <a href="#formacao" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Formação</a>
+            <a href="#cursos" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200">Cursos</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-12">
-        <section id="sobre" class="text-center mb-20">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#3D405B]">Ailton Carlos Santos Mota</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-                Professor de Filosofia e Informática com formação técnica em Mecânica Industrial. Experiência como técnico em manutenção de computadores, com domínio avançado em hardware, sistemas operacionais e pacotes Office. Facilidade de comunicação e para atuar em equipe, comprometimento com resultados e dedicação constante ao aprendizado.
-            </p>
-        </section>
 
-        <section id="experiencia" class="mb-20">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Jornada Profissional</h2>
-            <div id="timeline-container" class="relative max-w-2xl mx-auto">
-                <div class="timeline-line"></div>
+        <section id="hero" class="text-center py-20 md:py-24 lg:py-32 bg-gradient-to-br from-[#81B29A] to-[#3D405B] text-white rounded-lg shadow-xl mb-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <img src="https://via.placeholder.com/150/81B29A/FFFFFF?text=Sua+Foto" alt="Foto de Ailton Carlos S. Mota" class="w-36 h-36 rounded-full mx-auto mb-8 object-cover border-4 border-white shadow-2xl">
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">Ailton Carlos S. Mota</h1>
+                <p class="text-xl md:text-2xl lg:text-3xl font-semibold mb-6">Professor Inovador | Especialista em TI e Soluções Educacionais</p>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed mb-10 opacity-90">
+                    Unindo a paixão por educar à expertise em tecnologia, crio soluções eficientes e impacto duradouro.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#projetos" class="bg-white text-[#3D405B] px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 text-lg">
+                        Ver Meus Projetos
+                    </a>
+                    <a href="mailto:ailtoncarlos0101@gmail.com" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-white hover:text-[#3D405B] hover:scale-105 transition-all duration-300 text-lg">
+                        Entrar em Contato
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section id="formacao" class="mb-20">
+        <section id="sobre" class="text-center mb-20 py-12">
+            <h2 class="text-3xl font-bold mb-4 text-[#3D405B]">Sobre Mim</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                Com uma base sólida em Filosofia e Informática, e experiência prática em Mecânica Industrial e manutenção de computadores, dedico-me a criar e implementar soluções que otimizam processos e facilitam o aprendizado. Minha trajetória é marcada pelo comprometimento com resultados, facilidade de comunicação e busca constante por novos conhecimentos.
+            </p>
+        </section>
+
+        <section id="competencias" class="mb-24 py-12 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
+            <div class="text-center mb-8">
+                <button id="btn-tech" class="bg-[#81B29A] text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 font-semibold">Habilidades Técnicas</button>
+                <button id="btn-inter" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 ml-4 font-semibold">Habilidades Interpessoais</button>
+            </div>
+            <div class="chart-container max-w-2xl mx-auto h-96"> <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+
+        <section id="experiencia" class="mb-20 py-12">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Jornada Profissional</h2>
+            <div id="timeline-container" class="relative max-w-2xl mx-auto">
+                <div class="timeline-line"></div>
+                </div>
+        </section>
+        
+        <section id="projetos" class="mb-20 py-12 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Meus Projetos</h2>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"> 
+                </div>
+        </section>
+
+        <section id="formacao" class="mb-20 py-12">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Formação Acadêmica e Técnica</h2>
             <div id="education-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 </div>
         </section>
 
-        <section id="cursos" class="mb-20">
+        <section id="cursos" class="mb-20 py-12 bg-gray-50 rounded-lg shadow-inner">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Cursos e Qualificações Adicionais</h2>
             <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 </div>
         </section>
-
-        <section id="competencias" class="mb-24">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
-            <div class="text-center mb-8">
-                <button id="btn-tech" class="bg-[#81B29A] text-white px-4 py-2 rounded-md shadow-md hover:shadow-lg transition-all">Habilidades Técnicas</button>
-                <button id="btn-inter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md shadow-md hover:shadow-lg transition-all ml-4">Habilidades Interpessoais</button>
-            </div>
-            <div class="chart-container">
-                <canvas id="skillsChart"></canvas>
-            </div>
-        </section>
-        
-        <section id="projetos" class="mb-20">
-            <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Meus Projetos</h2>
-            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"> 
-                </div>
-        </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-800 text-white py-10 shadow-inner">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-white font-semibold mb-4">Pronto para colaborar em um novo desafio?</p> 
-            <p class="text-white font-bold text-lg mb-6">ailtoncarlos0101@gmail.com | +55 (38) 99113-9479</p>
+            <p class="text-white font-semibold mb-4 text-lg">Pronto para colaborar em um novo desafio?</p> 
+            <p class="text-white font-bold text-xl md:text-2xl mb-8">ailtoncarlos0101@gmail.com | +55 (38) 99113-9479</p>
 
-            <a href="curriculo_ailton_mota.pdf" download class="inline-block bg-[#81B29A] text-white px-6 py-3 rounded-lg shadow-lg hover:bg-opacity-90 transition-all font-bold text-base mt-4">
+            <a href="curriculo_ailton_mota.pdf" download class="inline-block bg-[#81B29A] text-white px-8 py-4 rounded-full shadow-lg hover:bg-opacity-90 hover:scale-105 transition-all duration-300 font-bold text-lg md:text-xl">
                 Baixar Currículo em PDF
             </a>
+            
+            <div class="mt-10 space-x-6">
+                <a href="https://linkedin.com/in/seu-perfil" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 text-3xl">
+                    <svg class="w-8 h-8 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/ailtonrock22" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 text-3xl">
+                    <svg class="w-8 h-8 inline-block" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.233 1.838 1.233 1.07 1.837 2.809 1.305 3.49.998.108-.776.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.564 21.798 24 17.291 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                </div>
         </div>
     </footer>
     
@@ -144,43 +174,51 @@
             const projectsData = [
                 { 
                     title: 'Gerenciador de Produtos (CRUD)', 
-                    description: 'Este é um gerenciador de produtos que demonstra as operações de CRUD (Criar, Ler, Atualizar, Deletar). A aplicação é construída com HTML, Tailwind CSS e JavaScript puro, ideal para exibir habilidades básicas de desenvolvimento front-end e manipulação de dados em uma interface simples.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projeto1.html'
+                    description: 'Demonstra operações CRUD com HTML, Tailwind CSS e JavaScript puro, exibindo habilidades front-end e manipulação de dados.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projeto1.html',
+                    image: 'https://via.placeholder.com/400x250/3D405B/FFFFFF?text=CRUD+Manager' // Placeholder para imagem
                 },
                 { 
                     title: 'Lista de Tarefas Colaborativa (Firebase)', 
-                    description: 'Um aplicativo de lista de tarefas que permite adicionar, marcar como concluído, editar e excluir tarefas. Possui funcionalidade de login/registro de usuário e persiste os dados em tempo real usando Firebase Authentication e Firestore. Ideal para gerenciar tarefas de forma dinâmica e colaborativa.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/lista-de-tarefas/index.html'
+                    description: 'App de tarefas com login/registro, persistência em tempo real via Firebase Auth e Firestore, ideal para gestão dinâmica.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/lista-de-tarefas/index.html',
+                    image: 'https://via.placeholder.com/400x250/81B29A/FFFFFF?text=Todo+List+Firebase' // Placeholder para imagem
                 },
                 { 
                     title: 'Calculadora de IMC', 
-                    description: 'Uma calculadora simples de Índice de Massa Corporal (IMC) desenvolvida com HTML, CSS e JavaScript. Permite ao usuário inserir peso e altura para calcular o IMC e exibir a classificação de saúde correspondente. Um projeto prático para demonstrar lógica básica e manipulação de DOM.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/calculadora-imc/index.html'
+                    description: 'Calculadora simples de IMC com HTML, CSS e JavaScript, demonstrando lógica básica e manipulação de DOM.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/calculadora-imc/index.html',
+                    image: 'https://via.placeholder.com/400x250/E07A5F/FFFFFF?text=Calculadora+IMC' // Placeholder para imagem
                 },
                 { 
                     title: 'Jogo da Memória', 
-                    description: 'Um clássico jogo da memória implementado com HTML, CSS e JavaScript. Os jogadores viram cartas para encontrar pares correspondentes, testando sua memória e concentração. Inclui temporizador e contador de tentativas para uma experiência de jogo completa.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/jogo-memoria/index.html'
+                    description: 'Clássico jogo da memória em HTML, CSS e JavaScript, com temporizador e contador, para testar memória e concentração.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/jogo-memoria/index.html',
+                    image: 'https://via.placeholder.com/400x250/F2CC8F/FFFFFF?text=Jogo+Memória' // Placeholder para imagem
                 }, 
                 { 
                     title: 'Validador de Formulário', 
-                    description: 'Um exemplo de implementação de validação de formulário robusta utilizando HTML, CSS e JavaScript. Demonstra técnicas para verificar entradas do usuário, exibir mensagens de erro personalizadas e garantir a integridade dos dados antes do envio. Essencial para aplicações web seguras.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/validador-formulario/index.html'
+                    description: 'Validação robusta de formulários com HTML, CSS e JavaScript, exibindo mensagens de erro e garantindo integridade de dados.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/validador-formulario/index.html',
+                    image: 'https://via.placeholder.com/400x250/3D405B/FFFFFF?text=Validador+Form' // Placeholder para imagem
                 }, 
                 { 
                     title: 'Clone da Netflix (Front-end)', 
-                    description: 'Um clone front-end responsivo da interface da Netflix, focado na recriação do design e experiência do usuário. Construído com HTML e CSS, este projeto simula a navegação e a exibição de conteúdo, demonstrando habilidades de layout e estilização modernas para interfaces de streaming.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/netflix-clone/index.html'
+                    description: 'Recriação responsiva da interface Netflix com HTML e CSS, simulando navegação e exibição de conteúdo de streaming.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/netflix-clone/index.html',
+                    image: 'https://via.placeholder.com/400x250/81B29A/FFFFFF?text=Netflix+Clone' // Placeholder para imagem
                 }, 
                 { 
                     title: 'Página de Captura (Landing Page)', 
-                    description: 'Uma landing page moderna e responsiva projetada para campanhas de marketing ou lançamento de produtos. Desenvolvida com HTML e CSS, apresenta um design atraente, formulário de contato e seções otimizadas para conversão, ideal para atrair e engajar visitantes.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/landing-page/index.html'
+                    description: 'Landing page moderna e responsiva com HTML e CSS, design atraente e seções otimizadas para conversão.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/landing-page/index.html',
+                    image: 'https://via.placeholder.com/400x250/E07A5F/FFFFFF?text=Landing+Page' // Placeholder para imagem
                 }, 
                 { 
                     title: 'Painel Administrativo (Dashboard)', 
-                    description: 'Um protótipo de painel administrativo (dashboard) com design limpo e funcional. Inclui gráficos de exemplo, tabelas e cards informativos. Criado com HTML, CSS e JavaScript, é uma demonstração de como organizar e apresentar dados complexos de forma intuitiva para gestão de sistemas.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/dashboard/index.html'
+                    description: 'Protótipo de dashboard com design limpo, gráficos, tabelas e cards, para organizar e apresentar dados complexos.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/dashboard/index.html',
+                    image: 'https://via.placeholder.com/400x250/F2CC8F/FFFFFF?text=Dashboard' // Placeholder para imagem
                 },
             ];
 
@@ -194,10 +232,10 @@
                 });
             }
 
-            // Templates para os cards (mantidos como estavam para demonstração do footer)
+            // Templates para os cards (melhorados com imagem para projetos)
             const timelineTemplate = (item) => `
-                <div class="timeline-item mb-8 pl-8 relative">
-                    <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#81B29A]">
+                <div class="timeline-item mb-8 pl-8 relative group">
+                    <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#81B29A] transform group-hover:scale-102 transition-transform duration-300">
                         <p class="text-sm font-semibold text-gray-500">${item.period}</p>
                         <h3 class="font-bold text-lg text-[#3D405B]">${item.title}</h3>
                         <p class="text-gray-600">${item.company}</p>
@@ -205,24 +243,28 @@
                 </div>`;
             
             const educationTemplate = (item) => `
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
                     <h3 class="font-bold text-lg text-[#3D405B] mb-2 flex-grow">${item.level}</h3>
                     <p class="text-gray-600 text-sm mb-2">${item.institution}</p>
                     <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.conclusion}</p>
                 </div>`;
 
             const coursesTemplate = (item) => `
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
                     <h3 class="font-bold text-lg text-[#3D405B] mb-2 flex-grow">${item.name}</h3>
                     <p class="text-gray-600 text-sm mb-2">${item.institution}</p>
                     <p class="text-sm font-semibold text-gray-500 mt-auto pt-2">Conclusão em ${item.year}</p>
                 </div>`;
 
+            // Template de projetos agora inclui imagem
             const projectsTemplate = (item) => `
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
-                    <h3 class="font-bold text-lg text-[#3D405B] mb-2">${item.title}</h3>
-                    <p class="text-gray-600 text-sm flex-grow mb-4">${item.description}</p> 
-                    <a href="${item.link}" target="_blank" class="mt-auto inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors text-sm font-medium">Ver Projeto</a>
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <img src="${item.image}" alt="Imagem do projeto ${item.title}" class="w-full h-48 object-cover object-center border-b border-gray-100">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-lg text-[#3D405B] mb-2">${item.title}</h3>
+                        <p class="text-gray-600 text-sm flex-grow mb-4">${item.description}</p> 
+                        <a href="${item.link}" target="_blank" class="mt-auto inline-block self-start bg-[#3D405B] text-white px-5 py-2 rounded-md hover:bg-[#2A2D40] hover:scale-105 transition-all duration-300 text-sm font-medium">Ver Projeto</a>
+                    </div>
                 </div>`;
 
             // Chama a função para renderizar cada seção
@@ -243,7 +285,7 @@
                     datasets: [{
                         label: 'Nível de Proficiência',
                         data: skillsData.tech.data,
-                        backgroundColor: 'rgba(129, 178, 154, 0.4)',
+                        backgroundColor: 'rgba(129, 178, 154, 0.4)', // Cor principal do tema
                         borderColor: 'rgba(129, 178, 154, 1)',
                         borderWidth: 2,
                         pointBackgroundColor: 'rgba(129, 178, 154, 1)',
@@ -254,17 +296,18 @@
                 },
                 options: {
                     maintainAspectRatio: false,
+                    responsive: true,
                     scales: {
                         r: {
-                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
+                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' }, // Cor do tema mais clara
                             grid: { color: 'rgba(61, 64, 91, 0.2)' },
                             pointLabels: { 
                                 font: { size: 12 },
-                                color: '#3D405B'
+                                color: '#3D405B' // Cor do tema
                             },
                             ticks: {
                                 backdropColor: 'transparent',
-                                color: 'rgba(61, 64, 91, 0.5)',
+                                color: 'rgba(61, 64, 91, 0.5)', // Cor do tema mais clara
                                 stepSize: 20,
                                 beginAtZero: true,
                                 max: 100
@@ -282,6 +325,7 @@
                 skillsChart.data.datasets[0].data = skillsData[skillType].data;
                 skillsChart.update();
 
+                // Atualiza o estilo dos botões
                 if (skillType === 'tech') {
                     btnTech.classList.add('bg-[#81B29A]', 'text-white');
                     btnTech.classList.remove('bg-gray-200', 'text-gray-700');
