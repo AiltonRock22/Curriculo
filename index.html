@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="style.css"> 
 
     <style>
-        /* CSS customizado para o timeline (se necessário, mova do style.css para cá para teste) */
+        /* Estilos customizados para o timeline, garantindo que não conflitem. */
+        /* Colocados diretamente no HTML para facilitar o teste, se funcionar, pode mover para style.css */
         .timeline-line {
             position: absolute;
             left: 20px; /* Alinhe com o ponto dos itens */
@@ -42,10 +43,10 @@
 </head>
 <body class="antialiased font-inter text-gray-800 overflow-x-hidden">
 
-    <div id="app-wrapper" class="min-h-screen flex flex-col">
+    <div id="site-wrapper" class="min-h-screen flex flex-col">
 
         <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-20 shadow-md">
-            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
                 <div>
                     <h1 class="text-xl font-bold text-[#3D405B]">Ailton Carlos S. Mota</h1>
                 </div>
@@ -74,8 +75,8 @@
         </header>
 
         <main class="flex-grow">
-            <section id="hero" class="text-center py-20 md:py-24 lg:py-32 bg-gradient-to-br from-[#81B29A] to-[#3D405B] text-white shadow-xl mb-20 relative overflow-hidden">
-                <div class="container mx-auto px-6 max-w-4xl z-10 relative">
+            <section id="hero" class="bg-gradient-to-br from-[#81B29A] to-[#3D405B] text-white shadow-xl mb-20 relative overflow-hidden">
+                <div class="container mx-auto px-6 py-20 md:py-24 lg:py-32 text-center z-10 relative">
                     <img src="https://via.placeholder.com/150/81B29A/FFFFFF?text=Sua+Foto" alt="Foto de Ailton Carlos S. Mota" class="w-36 h-36 rounded-full mx-auto mb-8 object-cover border-4 border-white shadow-2xl">
                     
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">Ailton Carlos S. Mota</h1>
@@ -111,8 +112,8 @@
             <section id="competencias" class="container mx-auto px-6 mb-24 py-12 bg-gray-50 rounded-lg shadow-inner">
                 <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
                 <div class="text-center mb-8">
-                    <button id="btn-tech" class="bg-[#81B29A] text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 font-semibold">Habilidades Técnicas</button>
-                    <button id="btn-inter" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-300 ml-4 font-semibold">Habilidades Interpessoais</button>
+                    <button id="btn-tech" class="bg-[#81B29A] text-white px-6 py-3 rounded-md shadow-md hover:bg-[#689B7D] transition-all duration-300 font-semibold">Habilidades Técnicas</button>
+                    <button id="btn-inter" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-md shadow-md hover:bg-gray-300 transition-all duration-300 ml-4 font-semibold">Habilidades Interpessoais</button>
                 </div>
                 <div class="chart-container max-w-2xl mx-auto h-96">
                     <canvas id="skillsChart"></canvas>
@@ -147,8 +148,8 @@
 
         <footer class="bg-gray-800 text-white py-10 shadow-inner mt-auto">
             <div class="container mx-auto px-6 text-center">
-                <p class="text-white font-semibold mb-4 text-lg">Pronto para colaborar em um novo desafio?</p> 
-                <p class="text-white font-bold text-xl md:text-2xl mb-8">ailtoncarlos0101@gmail.com | +55 (38) 99113-9479</p>
+                <p class="text-white font-semibold mb-4 text-lg opacity-100">Pronto para colaborar em um novo desafio?</p> 
+                <p class="text-white font-bold text-xl md:text-2xl mb-8 opacity-100">ailtoncarlos0101@gmail.com | +55 (38) 99113-9479</p>
 
                 <a href="curriculo_ailton_mota.pdf" download class="inline-block bg-[#81B29A] text-white px-8 py-4 rounded-full shadow-lg hover:bg-opacity-90 hover:scale-105 transition-all duration-300 font-bold text-lg md:text-xl">
                     Baixar Currículo em PDF
@@ -165,7 +166,6 @@
             </div>
         </footer>
     </div> <script>
-        // O JavaScript permanece o mesmo, pois as mudanças são no HTML/CSS
         document.addEventListener('DOMContentLoaded', () => {
             // Lógica para mostrar/esconder o menu mobile
             const menuBtn = document.getElementById('menu-btn');
@@ -309,7 +309,7 @@
             renderCards('courses-container', coursesData, coursesTemplate);
             renderCards('projects-container', projectsData, projectsTemplate);
 
-            // Lógica para o Gráfico de Habilidades (mantida a mesma)
+            // Lógica para o Gráfico de Habilidades
             const ctx = document.getElementById('skillsChart').getContext('2d');
             const btnTech = document.getElementById('btn-tech');
             const btnInter = document.getElementById('btn-inter');
@@ -321,7 +321,7 @@
                     datasets: [{
                         label: 'Nível de Proficiência',
                         data: skillsData.tech.data,
-                        backgroundColor: 'rgba(129, 178, 154, 0.4)',
+                        backgroundColor: 'rgba(129, 178, 154, 0.4)', // Cor principal do tema
                         borderColor: 'rgba(129, 178, 154, 1)',
                         borderWidth: 2,
                         pointBackgroundColor: 'rgba(129, 178, 154, 1)',
@@ -335,15 +335,15 @@
                     responsive: true,
                     scales: {
                         r: {
-                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
+                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' }, // Cor do tema mais clara
                             grid: { color: 'rgba(61, 64, 91, 0.2)' },
                             pointLabels: { 
                                 font: { size: 12 },
-                                color: '#3D405B'
+                                color: '#3D405B' // Cor do tema
                             },
                             ticks: {
                                 backdropColor: 'transparent',
-                                color: 'rgba(61, 64, 91, 0.5)',
+                                color: 'rgba(61, 64, 91, 0.5)', // Cor do tema mais clara
                                 stepSize: 20,
                                 beginAtZero: true,
                                 max: 100
@@ -361,6 +361,7 @@
                 skillsChart.data.datasets[0].data = skillsData[skillType].data;
                 skillsChart.update();
 
+                // Atualiza o estilo dos botões
                 if (skillType === 'tech') {
                     btnTech.classList.add('bg-[#81B29A]', 'text-white');
                     btnTech.classList.remove('bg-gray-200', 'text-gray-700');
