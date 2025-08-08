@@ -1,175 +1,236 @@
-/*
- * style.css
- * Este arquivo vai centralizar os estilos que você quer que sejam iguais em todas as páginas,
- * complementando o Tailwind CSS.
- */
+/* Importa uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* -------------------------------------------------------------------------- */
-/* Cores e Fontes (as suas cores e a fonte Inter, pra tudo ficar igual)      */
-/* -------------------------------------------------------------------------- */
+/* Estilos globais para a página */
 :root {
-    /* Cores que você já usa - se você já configurou isso no Tailwind, pode remover daqui */
-    --cor-fundo-claro: #F8F7F4; /* Fundo creme claro */
-    --cor-texto-principal: #3D405B; /* Texto principal em azul escuro */
-    --cor-destaque-verde: #81B29A; /* Cor do acento verde-azulado */
-    --cor-cinza-claro: #E0E0E0; /* Linhas e botões inativos */
-    --cor-branco: #FFFFFF;
-    --cor-cinza-600: #4B5563; /* Cor dos textos mais claros */
-    --cor-cinza-700: #374151; /* Cor para botões e textos */
-    --cor-cinza-800: #1F2937; /* Cor para rodapé e botões de projeto */
+    --primary-color: #5b21b6; /* Um roxo vibrante para o tema */
+    --secondary-color: #7c3aed; /* Uma variação mais clara para botões */
+    --background-color: #f3f4f6; /* Cinza claro para o fundo */
+    --card-background: #ffffff; /* Branco para os cartões */
+    --text-color: #1f2937; /* Cinza escuro para textos */
+    --light-text-color: #6b7280; /* Cinza claro para textos secundários */
+    --border-color: #e5e7eb; /* Cor da borda padrão */
+    --darker-border-color: #d1d5db; /* Cor da borda mais escura para contraste */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Garante que a fonte seja a Inter em tudo */
-    background-color: var(--cor-fundo-claro); /* Fundo creme claro em todas as páginas */
-    color: var(--cor-texto-principal); /* Cor principal do texto */
-    -webkit-font-smoothing: antialiased; /* Suaviza a fonte em navegadores Webkit */
-    -moz-osx-font-smoothing: grayscale; /* Suaviza a fonte no Firefox */
-    line-height: 1.6; /* Deixa o texto um pouco mais espaçado */
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinhamento ao topo para não ficar no meio da tela em mobile */
+    padding-top: 2rem;
+    min-height: 100vh;
 }
 
-/* Garante o scroll suave se a classe estiver no HTML */
-html.scroll-smooth {
-    scroll-behavior: smooth;
+/* Container principal do aplicativo */
+#app {
+    max-width: 450px;
+    width: 90%;
+    margin: auto;
+    padding: 1.5rem;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Estilos para Elementos Comuns (cabeçalhos, parágrafos, links, etc.)       */
-/* -------------------------------------------------------------------------- */
-
-/* Títulos principais de seção */
-h1, h2 {
-    font-weight: 700; /* Bold */
-    color: var(--cor-texto-principal); /* Azul escuro */
-    margin-bottom: 1.5rem; /* Espaçamento abaixo */
+/* Estilos para os contêineres de seção (login, registro, lista) */
+.container {
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    /* Sombra mais pronunciada e uma borda sutil */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-color); /* Adiciona uma borda padrão */
     text-align: center;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Transição para o hover */
 }
 
-/* Subtítulos ou títulos de cards */
-h3 {
-    font-weight: 600; /* Semibold */
-    color: var(--cor-texto-principal);
-    margin-bottom: 0.5rem;
+.container:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra ainda maior no hover */
+    border-color: var(--darker-border-color); /* Borda mais visível no hover */
+}
+
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para box-shadow */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    /* Sombra sutil no foco para destaque */
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3); 
+}
+
+button {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    /* Sombra mais forte para o botão e transição */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    /* Sombra maior no hover do botão */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 p {
-    margin-bottom: 1rem;
-    color: var(--cor-cinza-700);
+    margin-top: 1rem;
+    color: var(--light-text-color);
 }
 
-/* Links em geral */
-a {
-    color: var(--cor-texto-principal);
-    text-decoration: none; /* Sem sublinhado */
-    transition: color 0.3s ease-in-out; /* Transição suave na cor */
+/* Estilos específicos para botões que alternam entre login/registro */
+#show-register, #show-login {
+    background: none;
+    color: var(--primary-color);
+    padding: 0;
+    font-weight: 600;
+    text-decoration: underline;
+    /* Remove sombra e transformação, pois já são links */
+    box-shadow: none; 
+    transform: none;
 }
 
-a:hover {
-    color: var(--cor-destaque-verde); /* Muda para a cor de destaque no hover */
+#show-register:hover, #show-login:hover {
+    color: var(--secondary-color);
+    background: none;
+    text-decoration: none; /* Remove sublinhado no hover para um efeito mais limpo */
 }
 
-/* -------------------------------------------------------------------------- */
-/* Estilos para Componentes (Cards, Botões, Rodapé - replicando o que você gostou) */
-/* -------------------------------------------------------------------------- */
-
-/* Estilo base para todos os cards (projetos, formação, etc.) */
-.card {
-    background-color: var(--cor-branco); /* Fundo branco */
-    padding: 1.5rem; /* Espaçamento interno */
-    border-radius: 0.5rem; /* Cantos arredondados */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out; /* Transição para sombra e escala */
-    display: flex; /* Para layout flexível interno */
-    flex-direction: column; /* Conteúdo em coluna */
-    justify-content: space-between; /* Espaço entre itens */
-}
-
-.card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Sombra mais forte no hover */
-    transform: translateY(-5px); /* Efeito de "levantar" */
-}
-
-.card-title {
-    font-size: 1.25rem; /* text-lg */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 0.5rem;
-}
-
-.card-description {
-    font-size: 1rem; /* text-base */
-    color: var(--cor-cinza-600);
-    flex-grow: 1; /* Ocupa espaço disponível */
+/* Estilos para a seção de tarefas */
+#todo-container .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
 }
 
-/* Botões de ação (como "Ver Projeto") */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem; /* um pouco maior para botões de ação */
-    border-radius: 0.375rem; /* Cantos arredondados */
-    text-align: center;
-    font-weight: 500; /* Semibold */
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    text-decoration: none; /* Remove sublinhado */
-    cursor: pointer;
+#logout-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem; /* Garante que tenha o border-radius */
+    font-weight: 600; /* Mantém a consistência de fonte */
+    /* Adiciona sombra sutil e transição */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-primary {
-    background-color: var(--cor-destaque-verde);
-    color: var(--cor-branco);
+#logout-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    /* Sombra maior no hover */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
 }
 
-.btn-primary:hover {
-    background-color: rgba(129, 178, 154, 0.9); /* Um tom um pouco mais escuro */
+/* Estilos para a lista de tarefas */
+#new-task-form {
+    flex-direction: row;
+    gap: 0.5rem;
 }
 
-.btn-secondary {
-    background-color: var(--cor-cinza-claro);
-    color: var(--cor-cinza-700);
-    border: 1px solid var(--cor-cinza-claro); /* Borda sutil */
+#new-task-form input {
+    flex-grow: 1;
 }
 
-.btn-secondary:hover {
-    background-color: #D1D5DB; /* Um cinza um pouco mais escuro */
+#task-list {
+    list-style: none;
+    text-align: left;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Layouts Comuns (Containers para grid, espaçamentos)                        */
-/* -------------------------------------------------------------------------- */
-
-/* Container principal para centralizar o conteúdo e limitar largura */
-.container {
-    max-width: 1280px; /* Mais largo para conteúdos como projetos */
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem; /* px-6 */
-    padding-right: 1.5rem; /* px-6 */
+#task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: var(--card-background); /* Fundo branco para os itens da lista */
+    border-radius: 0.5rem;
+    /* Sombra e borda para cada item da lista */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Grid para exibir os cards de projeto (2 ou 3 colunas) */
-.grid-projetos {
-    display: grid;
-    grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
-    gap: 2rem; /* Espaçamento entre os cards */
+#task-list li:hover {
+    /* Sombra e borda mais acentuadas no hover */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+    border-color: var(--secondary-color); /* Borda com a cor de acento no hover */
 }
 
-@media (min-width: 768px) { /* Para telas maiores que 768px (MD) */
-    .grid-projetos {
-        grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+#task-list li.completed {
+    background-color: var(--background-color); /* Um tom mais próximo do fundo */
+    color: var(--light-text-color);
+    text-decoration: line-through;
+    box-shadow: none; /* Remove a sombra quando completa */
+    border-color: var(--darker-border-color); /* Borda mais escura para indicar estado completo */
+    opacity: 0.8; /* Suaviza um pouco o item completo */
+}
+
+#task-list li button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding: 0;
+    transition: color 0.3s ease;
+    box-shadow: none; /* Garante que os botões dentro do li não tenham sombra */
+    transform: none; /* Garante que não tenham transformação */
+}
+
+#task-list li button:hover {
+    color: var(--secondary-color);
+    transform: none; /* Garante que não tenham transformação */
+}
+
+/* Adaptação para telas menores (mobile) */
+@media (max-width: 500px) {
+    body {
+        padding-top: 1rem;
     }
-}
 
-@media (min-width: 1024px) { /* Para telas maiores que 1024px (LG) */
-    .grid-projetos {
-        grid-template-columns: repeat(3, 1fr); /* Três colunas */
+    .container {
+        padding: 1.5rem;
     }
-}
 
-/* Seção de rodapé */
-.main-footer {
-    background-color: var(--cor-cinza-800);
-    color: var(--cor-branco);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    margin-top: 4rem; /* Espaço acima do rodapé */
+    #new-task-form {
+        flex-direction: column;
+    }
 }
