@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <!-- Configurações básicas da página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Currículo - Ailton Carlos S. Mota</title>
 
-    <!-- Importando Tailwind CSS para estilização e Chart.js para o gráfico de habilidades -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Fonte "Inter" do Google Fonts para um visual moderno e limpo -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Estilos personalizados para o timeline e o gráfico -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -60,13 +56,11 @@
 </head>
 <body class="antialiased">
 
-    <!-- Cabeçalho com o menu de navegação -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
                 <h1 class="text-xl font-bold text-[#3D405B]">Ailton Carlos S. Mota</h1>
             </div>
-            <!-- Menu para telas grandes -->
             <div class="hidden md:flex space-x-6">
                 <a href="#sobre" class="text-gray-600 hover:text-[#81B29A] transition-colors">Sobre</a>
                 <a href="#experiencia" class="text-gray-600 hover:text-[#81B29A] transition-colors">Experiência</a>
@@ -75,14 +69,12 @@
                 <a href="#competencias" class="text-gray-600 hover:text-[#81B29A] transition-colors">Competências</a>
                 <a href="#projetos" class="text-gray-600 hover:text-[#81B29A] transition-colors">Projetos</a>
             </div>
-            <!-- Botão do menu para mobile -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
-        <!-- Menu mobile -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#sobre" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Sobre</a>
             <a href="#experiencia" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Experiência</a>
@@ -93,9 +85,7 @@
         </div>
     </header>
 
-    <!-- Conteúdo principal da página -->
     <main class="container mx-auto px-6 py-12">
-        <!-- Seção Sobre -->
         <section id="sobre" class="text-center mb-20">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[#3D405B]">Ailton Carlos Santos Mota</h2>
             <p class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
@@ -103,7 +93,6 @@
             </p>
         </section>
 
-        <!-- Seção de Experiência Profissional em formato de timeline -->
         <section id="experiencia" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Jornada Profissional</h2>
             <div id="timeline-container" class="relative max-w-2xl mx-auto">
@@ -111,46 +100,36 @@
             </div>
         </section>
 
-        <!-- Seção de Formação Acadêmica e Técnica -->
         <section id="formacao" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Formação Acadêmica e Técnica</h2>
             <div id="education-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Cards de formação serão gerados aqui via JavaScript -->
-            </div>
+                </div>
         </section>
 
-        <!-- Seção de Cursos e Qualificações Adicionais -->
         <section id="cursos" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Cursos e Qualificações Adicionais</h2>
             <div id="courses-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Cards de cursos serão gerados aqui via JavaScript -->
-            </div>
+                </div>
         </section>
 
-        <!-- Seção de Competências com gráfico de radar interativo -->
         <section id="competencias" class="mb-24">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Competências em Destaque</h2>
-            <!-- Botões para trocar o tipo de habilidade no gráfico -->
             <div class="text-center mb-8">
                 <button id="btn-tech" class="bg-[#81B29A] text-white px-4 py-2 rounded-md shadow-sm hover:bg-opacity-90 transition-all">Habilidades Técnicas</button>
                 <button id="btn-inter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md shadow-sm hover:bg-gray-300 transition-all ml-4">Habilidades Interpessoais</button>
             </div>
-            <!-- Canvas para o gráfico -->
             <div class="chart-container">
                 <canvas id="skillsChart"></canvas>
             </div>
         </section>
         
-        <!-- Nova Seção de Projetos com links -->
         <section id="projetos" class="mb-20">
             <h2 class="text-3xl font-bold text-center mb-12 text-[#3D405B]">Meus Projetos</h2>
-            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Os cards de projetos serão gerados aqui via JavaScript -->
-            </div>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"> 
+                </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-8 text-center">
             <p>Pronto para colaborar em um novo desafio?</p>
@@ -158,7 +137,6 @@
         </div>
     </footer>
 
-    <!-- Script JavaScript para carregar os dados e a funcionalidade -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Lógica para mostrar/esconder o menu mobile
@@ -204,50 +182,51 @@
             
             const projectsData = [
                 { 
-                    title: 'Projeto 1', 
-                    description: 'Este é um gerenciador de produtos que demonstra as operações de CRUD (Criar, Ler, Atualizar, Deletar). A aplicação é construída com HTML, Tailwind CSS e JavaScript puro, ideal para exibir habilidades básicas de desenvolvimento front-end.',
+                    title: 'Gerenciador de Produtos (CRUD)', 
+                    description: 'Este é um gerenciador de produtos que demonstra as operações de CRUD (Criar, Ler, Atualizar, Deletar). A aplicação é construída com HTML, Tailwind CSS e JavaScript puro, ideal para exibir habilidades básicas de desenvolvimento front-end e manipulação de dados em uma interface simples.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projeto1.html'
                 },
                 { 
-                    title: 'Projeto 2', 
-                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
-                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                    title: 'Lista de Tarefas Colaborativa (Firebase)', 
+                    description: 'Um aplicativo de lista de tarefas que permite adicionar, marcar como concluído, editar e excluir tarefas. Possui funcionalidade de login/registro de usuário e persiste os dados em tempo real usando Firebase Authentication e Firestore. Ideal para gerenciar tarefas de forma dinâmica e colaborativa.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/lista-de-tarefas/index.html'
                 },
                 { 
-                    title: 'Projeto 3', 
-                    description: 'O que você fez no seu terceiro projeto? Adicione detalhes e um link para que as pessoas possam ver o resultado.',
-                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/projeto_3_nome_do_projeto/index.html'
+                    title: 'Calculadora de IMC', 
+                    description: 'Uma calculadora simples de Índice de Massa Corporal (IMC) desenvolvida com HTML, CSS e JavaScript. Permite ao usuário inserir peso e altura para calcular o IMC e exibir a classificação de saúde correspondente. Um projeto prático para demonstrar lógica básica e manipulação de DOM.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/calculadora-imc/index.html'
                 },
                 { 
-                    title: 'Projeto 4', 
-                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
-                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                    title: 'Jogo da Memória', 
+                    description: 'Um clássico jogo da memória implementado com HTML, CSS e JavaScript. Os jogadores viram cartas para encontrar pares correspondentes, testando sua memória e concentração. Inclui temporizador e contador de tentativas para uma experiência de jogo completa.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/jogo-memoria/index.html'
                 }, 
                 { 
-                    title: 'Projeto 5', 
-                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
-                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                    title: 'Validador de Formulário', 
+                    description: 'Um exemplo de implementação de validação de formulário robusta utilizando HTML, CSS e JavaScript. Demonstra técnicas para verificar entradas do usuário, exibir mensagens de erro personalizadas e garantir a integridade dos dados antes do envio. Essencial para aplicações web seguras.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/validador-formulario/index.html'
                 }, 
                 { 
-                    title: 'Projeto 6', 
-                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
-                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                    title: 'Clone da Netflix (Front-end)', 
+                    description: 'Um clone front-end responsivo da interface da Netflix, focado na recriação do design e experiência do usuário. Construído com HTML e CSS, este projeto simula a navegação e a exibição de conteúdo, demonstrando habilidades de layout e estilização modernas para interfaces de streaming.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/netflix-clone/index.html'
                 }, 
                 { 
-                    title: 'Projeto 7', 
-                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
-                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                    title: 'Página de Captura (Landing Page)', 
+                    description: 'Uma landing page moderna e responsiva projetada para campanhas de marketing ou lançamento de produtos. Desenvolvida com HTML e CSS, apresenta um design atraente, formulário de contato e seções otimizadas para conversão, ideal para atrair e engajar visitantes.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/landing-page/index.html'
                 }, 
                 { 
-                    title: 'Projeto 8', 
-                    description: 'Uma descrição sobre o segundo projeto. Você pode colocar aqui um link para um site em produção ou um repositório.',
-                    link: 'https://github.com/seu-usuario/seu-projeto-2'
+                    title: 'Painel Administrativo (Dashboard)', 
+                    description: 'Um protótipo de painel administrativo (dashboard) com design limpo e funcional. Inclui gráficos de exemplo, tabelas e cards informativos. Criado com HTML, CSS e JavaScript, é uma demonstração de como organizar e apresentar dados complexos de forma intuitiva para gestão de sistemas.',
+                    link: 'https://ailtonrock22.github.io/Curriculo/projetos/dashboard/index.html'
                 },
             ];
 
             // Renderização dinâmica dos cards
             function renderCards(containerId, data, templateFn) {
                 const container = document.getElementById(containerId);
+                container.innerHTML = ''; // Limpa o container antes de adicionar os cards
                 data.forEach(item => {
                     const html = templateFn(item);
                     container.insertAdjacentHTML('beforeend', html);
@@ -280,9 +259,9 @@
 
             const projectsTemplate = (item) => `
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col">
-                    <h3 class="font-bold text-lg text-[#3D405B] flex-grow">${item.title}</h3>
-                    <p class="text-gray-600 mt-2 flex-grow">${item.description}</p>
-                    <a href="${item.link}" target="_blank" class="mt-4 inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors">Ver Projeto</a>
+                    <h3 class="font-bold text-lg text-[#3D405B] mb-2">${item.title}</h3>
+                    <p class="text-gray-600 text-sm flex-grow mb-4">${item.description}</p> 
+                    <a href="${item.link}" target="_blank" class="mt-auto inline-block self-start bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors text-sm font-medium">Ver Projeto</a>
                 </div>`;
 
             // Chama a função para renderizar cada seção
@@ -318,7 +297,7 @@
                         r: {
                             angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
                             grid: { color: 'rgba(61, 64, 91, 0.2)' },
-                            pointLabels: { 
+                            pointLabels: { 
                                 font: { size: 12 },
                                 color: '#3D405B'
                             },
