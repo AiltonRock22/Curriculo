@@ -1,159 +1,279 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Currículo - Ailton Carlos S. Mota</title>
-    <meta name="description" content="Currículo online de Ailton Carlos S. Mota: Professor de Filosofia e Informática, Especialista em Manutenção de Hardware e Software, Desenvolvedor Front-end. Projetos e experiência em educação e tecnologia.">
+    <meta name="description"
+        content="Currículo online de Ailton Carlos S. Mota: Professor de Filosofia e Informática, Especialista em Manutenção de Hardware e Software, Desenvolvedor Front-end. Projetos e experiência em educação e tecnologia.">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-    <div id="site-wrapper">
+    <style>
+        /* Estilos personalizados que não podem ser feitos com classes do Tailwind.
+           Coloquei aqui a estilização da timeline, que é mais complexa. */
+        :root {
+            --primary-green: #81B29A;
+            --dark-blue-text: #3D405B;
+            --light-grey-bg: #F4F4F4;
+            --white: #FFFFFF;
+            --medium-grey-border: #E0E0E0;
+            --light-text-color: #6B7280;
+            --dark-hover-green: #689B7D;
+            --light-hover-grey: #D1D5DB;
+        }
 
-        <header>
-            <nav class="container">
-                <div>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-blue-text);
+            line-height: 1.6;
+            background-color: var(--light-grey-bg);
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--medium-grey-border);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-green);
+            border: 2px solid var(--white);
+            box-shadow: 0 0 0 3px var(--primary-green);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            background-color: var(--dark-hover-green);
+            box-shadow: 0 0 0 3px var(--dark-hover-green);
+        }
+
+        .timeline-item:hover .bg-white {
+            border-color: var(--primary-green);
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 1.5rem; /* Gap entre os cards */
+        }
+        
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="site-wrapper" class="mx-auto font-sans text-gray-800 bg-gray-50">
+
+        <header class="bg-white shadow-sm sticky top-0 z-50">
+            <nav class="container mx-auto p-4 flex justify-between items-center">
+                <div class="text-xl font-bold text-gray-800">
                     <h1>Ailton Carlos S. Mota</h1>
                 </div>
-                <div class="nav-links">
-                    <a href="#sobre">Sobre</a>
-                    <a href="#competencias">Competências</a>
-                    <a href="#experiencia">Experiência</a>
-                    <a href="#projetos">Projetos</a>
-                    <a href="#formacao">Formação</a>
-                    <a href="#cursos">Cursos</a>
+                <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                    <a href="#sobre" class="hover:text-green-600 transition-colors">Sobre</a>
+                    <a href="#competencias" class="hover:text-green-600 transition-colors">Competências</a>
+                    <a href="#experiencia" class="hover:text-green-600 transition-colors">Experiência</a>
+                    <a href="#projetos" class="hover:text-green-600 transition-colors">Projetos</a>
+                    <a href="#formacao" class="hover:text-green-600 transition-colors">Formação</a>
+                    <a href="#cursos" class="hover:text-green-600 transition-colors">Cursos</a>
                 </div>
-                <div class="menu-toggle">
-                    <button id="menu-btn" aria-label="Abrir menu">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-600 hover:text-green-600 p-2 focus:outline-none">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="w-6 h-6">
+                            <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
                 </div>
             </nav>
-            <div id="mobile-menu" class="mobile-nav-links">
-                <a href="#sobre">Sobre</a>
-                <a href="#competencias">Competências</a>
-                <a href="#experiencia">Experiência</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#formacao">Formação</a>
-                <a href="#cursos">Cursos</a>
+            <div id="mobile-menu" class="mobile-nav-links hidden md:hidden bg-white shadow-inner pb-4">
+                <a href="#sobre" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Sobre</a>
+                <a href="#competencias" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Competências</a>
+                <a href="#experiencia" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Experiência</a>
+                <a href="#projetos" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Projetos</a>
+                <a href="#formacao" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Formação</a>
+                <a href="#cursos" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Cursos</a>
             </div>
         </header>
 
         <main>
-            <section id="hero">
-                <div class="container hero-content">
-                    <img src="images/sua-foto.jpg" alt="Foto de Ailton Carlos S. Mota" class="profile-pic">
-                    
-                    <h2>Ailton Carlos S. Mota</h2>
-                    <h3>Professor Inovador | Especialista em TI e Soluções Educacionais</h3>
-                    <p>
-                        Unindo a paixão por educar à expertise em tecnologia, crio soluções eficientes e impacto duradouro.
+            <section id="hero" class="bg-white pt-16 pb-8">
+                <div class="container mx-auto p-6 text-center">
+                    <img src="images/sua-foto.jpg" alt="Foto de Ailton Carlos S. Mota"
+                        class="profile-pic w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-500">
+
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Ailton Carlos S. Mota</h2>
+                    <h3 class="text-lg md:text-xl text-green-700 font-medium mb-4">Professor Inovador | Especialista em
+                        TI e
+                        Soluções Educacionais</h3>
+                    <p class="text-gray-600 max-w-2xl mx-auto mb-6">
+                        Unindo a paixão por educar à expertise em tecnologia, crio soluções eficientes e impacto
+                        duradouro.
                     </p>
-                    <div class="hero-buttons">
-                        <a href="#projetos" class="btn btn-primary">Ver Meus Projetos</a>
-                        <a href="mailto:ailtoncarlos0101@gmail.com" class="btn btn-secondary">Entrar em Contato</a>
+                    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="#projetos"
+                            class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition-colors">Ver
+                            Meus Projetos</a>
+                        <a href="mailto:ailtoncarlos0101@gmail.com"
+                            class="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-full hover:bg-gray-300 transition-colors">Entrar
+                            em Contato</a>
                     </div>
                 </div>
             </section>
 
-            <section id="sobre" class="content-section">
-                <div class="container">
-                    <h2>Sobre Mim</h2>
-                    <p>
-                        Com uma base sólida em Filosofia e Informática, e experiência prática em Mecânica Industrial e manutenção de computadores, dedico-me a criar e implementar soluções que otimizam processos e facilitam o aprendizado. Minha trajetória é marcada pelo comprometimento com resultados, facilidade de comunicação e busca constante por novos conhecimentos.
+            <section id="sobre" class="py-16">
+                <div class="container mx-auto p-6">
+                    <h2 class="text-3xl font-bold mb-4">Sobre Mim</h2>
+                    <p class="text-gray-700 max-w-4xl">
+                        Com uma base sólida em Filosofia e Informática, e experiência prática em Mecânica Industrial e
+                        manutenção de computadores, dedico-me a criar e implementar soluções que otimizam processos e
+                        facilitam o aprendizado. Minha trajetória é marcada pelo comprometimento com resultados,
+                        facilidade de comunicação e busca constante por novos conhecimentos.
                     </p>
                 </div>
             </section>
 
-            <section id="competencias" class="content-section bg-light">
-                <div class="container">
-                    <h2>Competências em Destaque</h2>
-                    <div class="skill-buttons">
-                        <button id="btn-tech" class="btn btn-skill active">Habilidades Técnicas</button>
-                        <button id="btn-inter" class="btn btn-skill">Habilidades Interpessoais</button>
+            <section id="competencias" class="bg-gray-50 py-16">
+                <div class="container mx-auto p-6">
+                    <h2 class="text-3xl font-bold mb-8">Competências em Destaque</h2>
+                    <div class="flex justify-center space-x-4 mb-8">
+                        <button id="btn-tech"
+                            class="btn-skill bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition-colors active">Habilidades
+                            Técnicas</button>
+                        <button id="btn-inter"
+                            class="btn-skill bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-full hover:bg-gray-300 transition-colors">Habilidades
+                            Interpessoais</button>
                     </div>
-                    <div class="chart-container">
+                    <div class="chart-container max-w-2xl mx-auto h-96">
                         <canvas id="skillsChart"></canvas>
                     </div>
                 </div>
             </section>
 
-            <section id="experiencia" class="content-section">
-                <div class="container">
-                    <h2>Jornada Profissional</h2>
-                    <div id="timeline-container" class="timeline">
-                        </div>
-                </div>
-            </section>
-            
-            <section id="projetos" class="content-section bg-light">
-                <div class="container">
-                    <h2>Meus Projetos</h2>
-                    <div id="projects-container" class="grid-container"> 
+            <section id="experiencia" class="py-16">
+                <div class="container mx-auto p-6">
+                    <h2 class="text-3xl font-bold mb-8">Jornada Profissional</h2>
+                    <div id="timeline-container" class="timeline-container">
                         </div>
                 </div>
             </section>
 
-            <section id="formacao" class="content-section">
-                <div class="container">
-                    <h2>Formação Acadêmica e Técnica</h2>
+            <section id="projetos" class="bg-gray-50 py-16">
+                <div class="container mx-auto p-6">
+                    <h2 class="text-3xl font-bold mb-8">Meus Projetos</h2>
+                    <div id="projects-container" class="grid-container">
+                        </div>
+                </div>
+            </section>
+
+            <section id="formacao" class="py-16">
+                <div class="container mx-auto p-6">
+                    <h2 class="text-3xl font-bold mb-8">Formação Acadêmica e Técnica</h2>
                     <div id="education-container" class="grid-container">
                         </div>
                 </div>
             </section>
 
-            <section id="cursos" class="content-section bg-light">
-                <div class="container">
-                    <h2>Cursos e Qualificações Adicionais</h2>
+            <section id="cursos" class="bg-gray-50 py-16">
+                <div class="container mx-auto p-6">
+                    <h2 class="text-3xl font-bold mb-8">Cursos e Qualificações Adicionais</h2>
                     <div id="courses-container" class="grid-container">
                         </div>
                 </div>
             </section>
         </main>
 
-        <footer>
-            <div class="container">
-                <p class="footer-cta">Pronto para colaborar em um novo desafio?</p>
-                <p class="footer-contact">
-                    ailtoncarlos0101@gmail.com <span class="separator-desktop">|</span> <span class="separator-mobile"></span> +55 (38) 99113-9479
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="container mx-auto p-6 text-center">
+                <p class="text-lg font-semibold mb-4">Pronto para colaborar em um novo desafio?</p>
+                <p class="text-gray-400 mb-4">
+                    ailtoncarlos0101@gmail.com
+                    <span class="mx-2 hidden md:inline-block">|</span>
+                    <span class="block md:inline-block">+55 (38) 99113-9479</span>
                 </p>
 
-                <a href="curriculo_ailton_mota.pdf" download class="btn btn-download">
+                <a href="curriculo_ailton_mota.pdf" download
+                    class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition-colors mb-6 inline-block">
                     Baixar Currículo em PDF
                 </a>
-                
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/ailtonrock22" target="_blank" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+
+                <div class="flex justify-center space-x-6 mt-6">
+                    <a href="https://linkedin.com/in/ailtonrock22" target="_blank" aria-label="LinkedIn"
+                        class="text-gray-400 hover:text-green-500 transition-colors">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            class="w-8 h-8">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
                     </a>
-                    <a href="https://github.com/ailtonrock22" target="_blank" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.233 1.838 1.233 1.07 1.837 2.809 1.305 3.49.998.108-.776.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.564 21.798 24 17.291 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    <a href="https://github.com/ailtonrock22" target="_blank" aria-label="GitHub"
+                        class="text-gray-400 hover:text-green-500 transition-colors">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            class="w-8 h-8">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.233 1.838 1.233 1.07 1.837 2.809 1.305 3.49.998.108-.776.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.564 21.798 24 17.291 24 12c0-6.627-5.373-12-12-12z" />
+                        </svg>
                     </a>
                 </div>
-                <p class="copyright">&copy; 2025 Ailton Carlos S. Mota. Todos os direitos reservados.</p>
+                <p class="text-sm text-gray-500 mt-6">&copy; 2025 Ailton Carlos S. Mota. Todos os direitos reservados.</p>
             </div>
         </footer>
-    </div> <script>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica para mostrar/esconder o menu mobile
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active'); // Usaremos 'active' para controlar a visibilidade no CSS
+                mobileMenu.classList.toggle('hidden');
             });
 
-            // Fechar menu mobile ao clicar em um link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
+                    mobileMenu.classList.add('hidden');
                 });
             });
 
-            // Dados da aplicação
+            // Dados e lógica de renderização
             const professionalData = [
                 { period: '2020 - Atual', title: 'Professor de Filosofia', company: 'Secretaria de Estado de Educação MG' },
                 { period: 'Não especificado', title: 'Professor e Coordenador de Ensino Médio', company: 'Secretaria de Estado de Educação MG' },
@@ -192,51 +312,52 @@
                     title: 'Gerenciador de Produtos (CRUD)', 
                     description: 'Demonstra operações CRUD com HTML, CSS e JavaScript puro, exibindo habilidades front-end e manipulação de dados.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projeto1.html',
-                    image: 'images/projects/crud-manager.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/crud-manager.png'
                 },
                 { 
                     title: 'Lista de Tarefas Colaborativa (Firebase)', 
                     description: 'App de tarefas com login/registro, persistência em tempo real via Firebase Auth e Firestore, ideal para gestão dinâmica.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/lista-de-tarefas/index.html',
-                    image: 'images/projects/lista-de-tarefas.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/lista-de-tarefas.png'
                 },
                 { 
                     title: 'Calculadora de IMC', 
                     description: 'Calculadora simples de IMC com HTML, CSS e JavaScript, demonstrando lógica básica e manipulação de DOM.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/calculadora-imc/index.html',
-                    image: 'images/projects/calculadora-imc.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/calculadora-imc.png'
                 },
                 { 
                     title: 'Jogo da Memória', 
                     description: 'Clássico jogo da memória em HTML, CSS e JavaScript, com temporizador e contador, para testar memória e concentração.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/jogo-memoria/index.html',
-                    image: 'images/projects/jogo-memoria.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/jogo-memoria.png'
                 }, 
                 { 
                     title: 'Validador de Formulário', 
                     description: 'Validação robusta de formulários com HTML, CSS e JavaScript, exibindo mensagens de erro e garantindo integridade de dados.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/validador-formulario/index.html',
-                    image: 'images/projects/validador-formulario.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/validador-formulario.png'
                 }, 
                 { 
                     title: 'Clone da Netflix (Front-end)', 
                     description: 'Recriação responsiva da interface Netflix com HTML e CSS, simulando navegação e exibição de conteúdo de streaming.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/netflix-clone/index.html',
-                    image: 'images/projects/netflix-clone.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/netflix-clone.png'
                 }, 
                 { 
                     title: 'Página de Captura (Landing Page)', 
                     description: 'Landing page moderna e responsiva com HTML e CSS, design atraente e seções otimizadas para conversão.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/landing-page/index.html',
-                    image: 'images/projects/landing-page.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/landing-page.png'
                 }, 
                 { 
                     title: 'Painel Administrativo (Dashboard)', 
                     description: 'Protótipo de dashboard com design limpo, gráficos, tabelas e cards, para organizar e apresentar dados complexos.',
                     link: 'https://ailtonrock22.github.io/Curriculo/projetos/dashboard/index.html',
-                    image: 'images/projects/dashboard.png' // Substitua pelo caminho da sua imagem
+                    image: 'images/projects/dashboard.png'
                 },
             ];
+
 
             // Renderização dinâmica dos cards
             function renderCards(containerId, data, templateFn) {
@@ -251,36 +372,37 @@
             // Templates HTML para cada tipo de card
             const timelineTemplate = (item) => `
                 <div class="timeline-item">
-                    <div class="card">
-                        <p class="period">${item.period}</p>
-                        <h3>${item.title}</h3>
-                        <p class="company">${item.company}</p>
+                    <div class="card p-6 bg-white rounded-lg shadow-md border border-gray-200 hover:border-green-600 transition-colors">
+                        <p class="text-sm font-medium text-gray-500">${item.period}</p>
+                        <h3 class="text-xl font-bold mt-1">${item.title}</h3>
+                        <p class="text-gray-600">${item.company}</p>
                     </div>
                 </div>`;
             
             const educationTemplate = (item) => `
-                <div class="card">
-                    <h3>${item.level}</h3>
-                    <p class="institution">${item.institution}</p>
-                    <p class="conclusion">Conclusão em ${item.conclusion}</p>
+                <div class="card p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-lg font-bold">${item.level}</h3>
+                    <p class="text-gray-600">${item.institution}</p>
+                    <p class="text-sm text-gray-500 mt-2">Conclusão em ${item.conclusion}</p>
                 </div>`;
 
             const coursesTemplate = (item) => `
-                <div class="card">
-                    <h3>${item.name}</h3>
-                    <p class="institution">${item.institution}</p>
-                    <p class="conclusion">Conclusão em ${item.year}</p>
+                <div class="card p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-lg font-bold">${item.name}</h3>
+                    <p class="text-gray-600">${item.institution}</p>
+                    <p class="text-sm text-gray-500 mt-2">Conclusão em ${item.year}</p>
                 </div>`;
 
             const projectsTemplate = (item) => `
-                <div class="card project-card">
-                    <img src="${item.image}" alt="Imagem do projeto ${item.title}" class="project-image">
-                    <div class="project-info">
-                        <h3>${item.title}</h3>
-                        <p class="project-description">${item.description}</p> 
-                        <a href="${item.link}" target="_blank" class="btn btn-project">Ver Projeto</a>
+                <div class="card p-4 bg-white rounded-lg shadow-md flex flex-col h-full border border-gray-200">
+                    <img src="${item.image}" alt="Imagem do projeto ${item.title}" class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2">${item.title}</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">${item.description}</p> 
+                        <a href="${item.link}" target="_blank" class="self-start text-green-600 font-semibold hover:underline">Ver Projeto</a>
                     </div>
                 </div>`;
+
 
             // Chamadas para renderizar os cards em cada seção
             renderCards('timeline-container', professionalData, timelineTemplate);
@@ -300,7 +422,7 @@
                     datasets: [{
                         label: 'Nível de Proficiência',
                         data: skillsData.tech.data,
-                        backgroundColor: 'rgba(129, 178, 154, 0.4)', // Cor principal do tema (primary-green com opacidade)
+                        backgroundColor: 'rgba(129, 178, 154, 0.4)',
                         borderColor: 'rgba(129, 178, 154, 1)',
                         borderWidth: 2,
                         pointBackgroundColor: 'rgba(129, 178, 154, 1)',
@@ -310,19 +432,19 @@
                     }]
                 },
                 options: {
-                    maintainAspectRatio: false, // Permite que a altura seja controlada
+                    maintainAspectRatio: false,
                     responsive: true,
                     scales: {
                         r: {
-                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' }, 
+                            angleLines: { color: 'rgba(61, 64, 91, 0.2)' },
                             grid: { color: 'rgba(61, 64, 91, 0.2)' },
-                            pointLabels: { 
+                            pointLabels: {
                                 font: { size: 12 },
-                                color: '#3D405B' 
+                                color: '#3D405B'
                             },
                             ticks: {
                                 backdropColor: 'transparent',
-                                color: 'rgba(61, 64, 91, 0.5)', 
+                                color: 'rgba(61, 64, 91, 0.5)',
                                 stepSize: 20,
                                 beginAtZero: true,
                                 max: 100
@@ -330,31 +452,33 @@
                         }
                     },
                     plugins: {
-                        legend: { display: false } 
+                        legend: { display: false }
                     }
                 }
             });
 
-            // Função para atualizar o gráfico com base no tipo de habilidade (Técnica ou Interpessoal)
             function updateChart(skillType) {
                 skillsChart.data.labels = skillsData[skillType].labels;
                 skillsChart.data.datasets[0].data = skillsData[skillType].data;
                 skillsChart.update();
 
-                // Atualiza as classes CSS dos botões para indicar qual está ativo
                 if (skillType === 'tech') {
-                    btnTech.classList.add('active');
-                    btnInter.classList.remove('active');
+                    btnTech.classList.add('bg-green-600', 'text-white');
+                    btnTech.classList.remove('bg-gray-200', 'text-gray-800');
+                    btnInter.classList.add('bg-gray-200', 'text-gray-800');
+                    btnInter.classList.remove('bg-green-600', 'text-white');
                 } else {
-                    btnInter.classList.add('active');
-                    btnTech.classList.remove('active');
+                    btnInter.classList.add('bg-green-600', 'text-white');
+                    btnInter.classList.remove('bg-gray-200', 'text-gray-800');
+                    btnTech.classList.add('bg-gray-200', 'text-gray-800');
+                    btnTech.classList.remove('bg-green-600', 'text-white');
                 }
             }
-            
-            // Event Listeners para os botões de habilidades
+
             btnTech.addEventListener('click', () => updateChart('tech'));
             btnInter.addEventListener('click', () => updateChart('inter'));
         });
     </script>
 </body>
+
 </html>
