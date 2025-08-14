@@ -27,32 +27,40 @@
             border-radius: 50%;
             background: #81B29A;
         }
+        .project-card {
+            transition: all 0.3s ease;
+        }
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho/Navegação -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-xl font-bold">Ailton Carlos S. Mota</h1>
             <div class="hidden md:flex space-x-6">
                 <a href="#sobre" class="hover:text-green-600 transition">Sobre</a>
-                <a href="#experiencia" class="hover:text-green-600 transition">Experiência</a>
+                <a href="#habilidades" class="hover:text-green-600 transition">Habilidades</a>
                 <a href="#projetos" class="hover:text-green-600 transition">Projetos</a>
+                <a href="#experiencia" class="hover:text-green-600 transition">Experiência</a>
                 <a href="#contato" class="hover:text-green-600 transition">Contato</a>
             </div>
-            <button id="menu-btn" class="md:hidden">
+            <button id="menu-btn" class="md:hidden text-gray-600 focus:outline-none">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
         <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-md">
             <a href="#sobre" class="block py-2 hover:text-green-600">Sobre</a>
-            <a href="#experiencia" class="block py-2 hover:text-green-600">Experiência</a>
+            <a href="#habilidades" class="block py-2 hover:text-green-600">Habilidades</a>
             <a href="#projetos" class="block py-2 hover:text-green-600">Projetos</a>
+            <a href="#experiencia" class="block py-2 hover:text-green-600">Experiência</a>
             <a href="#contato" class="block py-2 hover:text-green-600">Contato</a>
         </div>
     </header>
@@ -60,9 +68,10 @@
     <!-- Seção Hero -->
     <section class="bg-white py-12">
         <div class="container mx-auto px-4 text-center">
-            <img src="https://via.placeholder.com/150" alt="Ailton Carlos" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-green-600">
+            <img src="https://via.placeholder.com/150" alt="Ailton Carlos" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-green-600 object-cover">
             <h1 class="text-3xl md:text-4xl font-bold mb-2">Ailton Carlos S. Mota</h1>
-            <p class="text-lg text-green-700 font-medium mb-4">Professor de Filosofia | Desenvolvedor Front-end</p>
+            <p class="text-lg text-green-700 font-medium mb-4">Professor | Desenvolvedor Front-end</p>
+            <p class="max-w-2xl mx-auto mb-6">Unindo educação e tecnologia para criar soluções inovadoras.</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#projetos" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">Ver Projetos</a>
                 <a href="#contato" class="bg-gray-200 px-6 py-2 rounded-full hover:bg-gray-300 transition">Contato</a>
@@ -80,34 +89,110 @@
         
         <!-- Habilidades em Destaque -->
         <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
                 <i class="fas fa-laptop-code text-3xl text-green-600 mb-2"></i>
                 <p class="font-medium">Manutenção HW/SW</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
                 <i class="fab fa-windows text-3xl text-blue-500 mb-2"></i>
                 <p class="font-medium">Windows/Linux</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
                 <i class="fas fa-code text-3xl text-purple-600 mb-2"></i>
                 <p class="font-medium">HTML/CSS/JS</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition">
                 <i class="fas fa-users text-3xl text-amber-500 mb-2"></i>
                 <p class="font-medium">Trabalho em Equipe</p>
             </div>
         </div>
     </section>
 
+    <!-- Seção Habilidades -->
+    <section id="habilidades" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Minhas Habilidades</h2>
+            
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button class="skill-filter px-4 py-2 bg-green-600 text-white rounded-full" data-category="all">Todas</button>
+                <button class="skill-filter px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300" data-category="tech">Técnicas</button>
+                <button class="skill-filter px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300" data-category="soft">Interpessoais</button>
+            </div>
+            
+            <!-- Habilidades Técnicas -->
+            <div id="tech-skills" class="space-y-4">
+                <div class="skill-item">
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Manutenção de Computadores</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="skill-bar bg-green-600 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">HTML/CSS</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="skill-bar bg-green-600 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">JavaScript</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="skill-bar bg-green-600 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Habilidades Interpessoais (inicialmente ocultas) -->
+            <div id="soft-skills" class="space-y-4 hidden">
+                <div class="skill-item">
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Comunicação</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="skill-bar bg-green-600 h-2.5 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Trabalho em Equipe</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="skill-bar bg-green-600 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Liderança</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="skill-bar bg-green-600 h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Seção Experiência -->
-    <section id="experiencia" class="py-12 bg-gray-100">
+    <section id="experiencia" class="py-12">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold mb-8 text-center">Experiência Profissional</h2>
             
             <div class="space-y-8 max-w-3xl mx-auto">
                 <!-- Item 1 -->
                 <div class="timeline-item pl-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
                         <p class="text-sm text-gray-500">2020 - Atual</p>
                         <h3 class="text-xl font-bold mt-1">Professor de Filosofia</h3>
                         <p class="text-gray-600">Secretaria de Estado de Educação MG</p>
@@ -117,7 +202,7 @@
                 
                 <!-- Item 2 -->
                 <div class="timeline-item pl-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
                         <p class="text-sm text-gray-500">2018 - 2019</p>
                         <h3 class="text-xl font-bold mt-1">Professor de Informática</h3>
                         <p class="text-gray-600">Mister Cursos</p>
@@ -125,122 +210,104 @@
                     </div>
                 </div>
                 
-                <!-- Adicione mais itens conforme necessário -->
+                <!-- Item 3 -->
+                <div class="timeline-item pl-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <p class="text-sm text-gray-500">2017</p>
+                        <h3 class="text-xl font-bold mt-1">Operador de Telemarketing</h3>
+                        <p class="text-gray-600">VGX Contact Center</p>
+                        <p class="mt-2 text-gray-700">Atendimento ao cliente e suporte técnico via telefone.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção Projetos (DESTAQUE!) -->
-    <section id="projetos" class="py-12 container mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-8 text-center">Meus Projetos</h2>
-        
-        <!-- Filtros -->
-        <div class="flex flex-wrap justify-center gap-3 mb-8">
-            <button class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">Todos</button>
-            <button class="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">Front-end</button>
-            <button class="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">Educação</button>
-        </div>
-        
-        <!-- Grid de Projetos -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Projeto 1 -->
-            <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
-                <img src="https://via.placeholder.com/600x400" alt="Projeto" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Gerenciador de Produtos</h3>
-                    <p class="text-gray-600 mb-4">Sistema CRUD completo com JavaScript puro.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">HTML</span>
-                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">CSS</span>
-                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">JavaScript</span>
-                    </div>
-                    <div class="flex gap-3">
-                        <a href="#" class="text-green-600 font-medium hover:underline flex items-center">
-                            Demo <i class="fas fa-external-link-alt ml-1 text-xs"></i>
-                        </a>
-                        <a href="#" class="text-gray-600 font-medium hover:underline flex items-center">
-                            Código <i class="fab fa-github ml-1 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
+    <!-- Seção Projetos -->
+    <section id="projetos" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Meus Projetos</h2>
+            
+            <!-- Filtros -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button class="project-filter px-4 py-2 bg-green-600 text-white rounded-full" data-category="all">Todos</button>
+                <button class="project-filter px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300" data-category="frontend">Front-end</button>
+                <button class="project-filter px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300" data-category="education">Educação</button>
             </div>
             
-            <!-- Projeto 2 -->
-            <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
-                <img src="https://via.placeholder.com/600x400" alt="Projeto" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Plataforma Educacional</h3>
-                    <p class="text-gray-600 mb-4">Site para aulas online com recursos interativos.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">HTML</span>
-                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">CSS</span>
-                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">JavaScript</span>
-                    </div>
-                    <div class="flex gap-3">
-                        <a href="#" class="text-green-600 font-medium hover:underline flex items-center">
-                            Demo <i class="fas fa-external-link-alt ml-1 text-xs"></i>
-                        </a>
-                        <a href="#" class="text-gray-600 font-medium hover:underline flex items-center">
-                            Código <i class="fab fa-github ml-1 text-xs"></i>
-                        </a>
-                    </div>
-                </div>
+            <!-- Grid de Projetos -->
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projetos serão carregados aqui via JavaScript -->
             </div>
-            
-            <!-- Adicione mais projetos aqui -->
         </div>
     </section>
 
     <!-- Seção Formação -->
-    <section id="formacao" class="py-12 bg-gray-100">
+    <section id="formacao" class="py-12">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold mb-8 text-center">Formação Acadêmica</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 <!-- Item 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
                     <h3 class="text-xl font-bold">Mestrado em Filosofia</h3>
                     <p class="text-gray-600">Universidade Estadual de Montes Claros</p>
                     <p class="text-sm text-gray-500 mt-2">Conclusão em 2026</p>
                 </div>
                 
                 <!-- Item 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
                     <h3 class="text-xl font-bold">Licenciatura em Informática</h3>
                     <p class="text-gray-600">Centro Universitário Leonardo da Vinci</p>
                     <p class="text-sm text-gray-500 mt-2">Conclusão em 2025</p>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                    <h3 class="text-xl font-bold">Pós-graduação em Metodologia do Ensino</h3>
+                    <p class="text-gray-600">FAVENI</p>
+                    <p class="text-sm text-gray-500 mt-2">Conclusão em 2023</p>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                    <h3 class="text-xl font-bold">Licenciatura em Filosofia</h3>
+                    <p class="text-gray-600">Universidade Estadual de Montes Claros</p>
+                    <p class="text-sm text-gray-500 mt-2">Conclusão em 2019</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Seção Contato -->
-    <section id="contato" class="py-12 container mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-8 text-center">Contato</h2>
-        
-        <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-sm">
-            <div class="space-y-4">
-                <div class="flex items-center">
-                    <i class="fas fa-envelope text-green-600 mr-3 text-xl"></i>
-                    <a href="mailto:ailtoncarlos0101@gmail.com" class="hover:text-green-600">ailtoncarlos0101@gmail.com</a>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-phone text-green-600 mr-3 text-xl"></i>
-                    <a href="tel:+5538991139479" class="hover:text-green-600">(38) 99113-9479</a>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-map-marker-alt text-green-600 mr-3 text-xl"></i>
-                    <span>Montes Claros, MG</span>
-                </div>
-            </div>
+    <section id="contato" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Entre em Contato</h2>
             
-            <div class="flex justify-center space-x-6 mt-8">
-                <a href="https://linkedin.com/in/seu-perfil" target="_blank" class="text-gray-600 hover:text-green-600 text-2xl">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/AiltonRock22" target="_blank" class="text-gray-600 hover:text-green-600 text-2xl">
-                    <i class="fab fa-github"></i>
-                </a>
+            <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-sm">
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-green-600 mr-3 text-xl"></i>
+                        <a href="mailto:ailtoncarlos0101@gmail.com" class="hover:text-green-600">ailtoncarlos0101@gmail.com</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone text-green-600 mr-3 text-xl"></i>
+                        <a href="tel:+5538991139479" class="hover:text-green-600">(38) 99113-9479</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-green-600 mr-3 text-xl"></i>
+                        <span>Montes Claros, MG</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-6 mt-8">
+                    <a href="https://www.linkedin.com/in/ailton-carlos-santos-mota-69204818a/" target="_blank" class="text-gray-600 hover:text-green-600 text-2xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/AiltonRock22" target="_blank" class="text-gray-600 hover:text-green-600 text-2xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -248,7 +315,7 @@
     <!-- Rodapé -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2023 Ailton Carlos S. Mota. Todos os direitos reservados.</p>
+            <p>&copy; <span id="current-year"></span> Ailton Carlos S. Mota. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -259,25 +326,174 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Dados dos Projetos (pode ser expandido)
+        // Atualiza o ano no rodapé
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Dados dos Projetos
         const projetos = [
             {
-                titulo: "Gerenciador de Produtos",
-                descricao: "Sistema CRUD com JavaScript puro.",
-                tecnologias: ["HTML", "CSS", "JavaScript"],
-                demo: "#",
-                github: "#",
-                categoria: "frontend"
+                title: "Gerenciador de Produtos (CRUD)",
+                description: "Sistema CRUD completo com HTML, CSS e JavaScript puro.",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                demoLink: "https://ailtonrock22.github.io/Curriculo/projeto1.html",
+                codeLink: "https://github.com/AiltonRock22/Curriculo/tree/main/projeto1",
+                category: "frontend",
+                image: "https://via.placeholder.com/600x400?text=CRUD+Project"
             },
-            // Adicione mais projetos aqui
+            {
+                title: "Plataforma Educacional",
+                description: "Site para aulas online com recursos interativos para professores e alunos.",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                demoLink: "#",
+                codeLink: "#",
+                category: "education",
+                image: "https://via.placeholder.com/600x400?text=Education+Platform"
+            },
+            {
+                title: "Calculadora de IMC",
+                description: "Calculadora de Índice de Massa Corporal com interface amigável.",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                demoLink: "https://ailtonrock22.github.io/Curriculo/projetos/calculadora-imc/index.html",
+                codeLink: "https://github.com/AiltonRock22/Curriculo/tree/main/projetos/calculadora-imc",
+                category: "frontend",
+                image: "https://via.placeholder.com/600x400?text=IMC+Calculator"
+            },
+            {
+                title: "Jogo da Memória Educativo",
+                description: "Jogo da memória com temas educacionais para auxiliar no aprendizado.",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                demoLink: "https://ailtonrock22.github.io/Curriculo/projetos/jogo-memoria/index.html",
+                codeLink: "https://github.com/AiltonRock22/Curriculo/tree/main/projetos/jogo-memoria",
+                category: "education",
+                image: "https://via.placeholder.com/600x400?text=Memory+Game"
+            },
+            {
+                title: "Validador de Formulário",
+                description: "Sistema de validação de formulários com feedback em tempo real.",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                demoLink: "https://ailtonrock22.github.io/Curriculo/projetos/validador-formulario/index.html",
+                codeLink: "https://github.com/AiltonRock22/Curriculo/tree/main/projetos/validador-formulario",
+                category: "frontend",
+                image: "https://via.placeholder.com/600x400?text=Form+Validator"
+            },
+            {
+                title: "Clone da Netflix",
+                description: "Interface clone da Netflix com carrossel de filmes e responsividade.",
+                technologies: ["HTML", "CSS", "JavaScript"],
+                demoLink: "https://ailtonrock22.github.io/Curriculo/projetos/netflix-clone/index.html",
+                codeLink: "https://github.com/AiltonRock22/Curriculo/tree/main/projetos/netflix-clone",
+                category: "frontend",
+                image: "https://via.placeholder.com/600x400?text=Netflix+Clone"
+            }
         ];
 
-        // Filtragem de projetos (opcional)
-        // document.querySelectorAll('.filter-btn').forEach(btn => {
-        //     btn.addEventListener('click', function() {
-        //         // Lógica para filtrar projetos
-        //     });
-        // });
+        // Filtros de Projetos
+        document.querySelectorAll('.project-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                // Atualiza botões ativos
+                document.querySelectorAll('.project-filter').forEach(btn => {
+                    btn.classList.remove('bg-green-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+                });
+                this.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                this.classList.add('bg-green-600', 'text-white');
+                
+                // Filtra projetos
+                const category = this.getAttribute('data-category');
+                const filteredProjects = category === 'all' 
+                    ? projetos 
+                    : projetos.filter(project => project.category === category);
+                
+                renderProjects(filteredProjects);
+            });
+        });
+
+        // Renderiza projetos
+        function renderProjects(projects) {
+            const container = document.getElementById('projects-container');
+            container.innerHTML = '';
+            
+            projects.forEach(project => {
+                const projectCard = `
+                    <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-gray-600 mb-4">${project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${project.technologies.map(tech => 
+                                    `<span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">${tech}</span>`
+                                ).join('')}
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="${project.demoLink}" target="_blank" class="text-green-600 font-medium hover:underline flex items-center">
+                                    Demo <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </a>
+                                <a href="${project.codeLink}" target="_blank" class="text-gray-600 font-medium hover:underline flex items-center">
+                                    Código <i class="fab fa-github ml-1 text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', projectCard);
+            });
+        }
+
+        // Filtros de Habilidades
+        document.querySelectorAll('.skill-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                // Atualiza botões ativos
+                document.querySelectorAll('.skill-filter').forEach(btn => {
+                    btn.classList.remove('bg-green-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+                });
+                this.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                this.classList.add('bg-green-600', 'text-white');
+                
+                // Mostra seções de habilidades
+                const category = this.getAttribute('data-category');
+                if (category === 'all') {
+                    document.getElementById('tech-skills').classList.remove('hidden');
+                    document.getElementById('soft-skills').classList.remove('hidden');
+                } else if (category === 'tech') {
+                    document.getElementById('tech-skills').classList.remove('hidden');
+                    document.getElementById('soft-skills').classList.add('hidden');
+                } else {
+                    document.getElementById('tech-skills').classList.add('hidden');
+                    document.getElementById('soft-skills').classList.remove('hidden');
+                }
+            });
+        });
+
+        // Animação das barras de habilidade
+        function animateSkillBars() {
+            document.querySelectorAll('.skill-bar').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjects(projetos);
+            animateSkillBars();
+            
+            // Observador para animar habilidades quando visíveis
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(document.getElementById('habilidades'));
+        });
     </script>
 </body>
 </html>
