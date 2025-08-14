@@ -3,88 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ailton Carlos - Currículo</title>
-    <meta name="description" content="Professor de Filosofia e Desenvolvedor Front-end. Especialista em TI e Soluções Educacionais.">
+    <title>Ailton Carlos - Currículo Online</title>
+    <meta name="description" content="Professor de Filosofia e Desenvolvedor | Especialista em TI e Educação">
     
-    <!-- Tailwind CSS via CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Ícones (Font Awesome) -->
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Configuração do Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#81B29A',
-                        darkText: '#3D405B',
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Estilos inline (evitando style.css) -->
     <style>
         .timeline-item {
             position: relative;
-            padding-left: 2.5rem;
-            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid #81B29A;
         }
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 1rem;
-            height: 1rem;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: #81B29A;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #81B29A;
         }
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Cabeçalho/Navegação -->
+    <!-- Cabeçalho -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-xl font-bold">Ailton Carlos S. Mota</h1>
             <div class="hidden md:flex space-x-6">
-                <a href="#sobre" class="hover:text-primary transition">Sobre</a>
-                <a href="#habilidades" class="hover:text-primary transition">Habilidades</a>
-                <a href="#projetos" class="hover:text-primary transition">Projetos</a>
-                <a href="#experiencia" class="hover:text-primary transition">Experiência</a>
-                <a href="#contato" class="hover:text-primary transition">Contato</a>
+                <a href="#sobre" class="hover:text-green-600 transition">Sobre</a>
+                <a href="#experiencia" class="hover:text-green-600 transition">Experiência</a>
+                <a href="#projetos" class="hover:text-green-600 transition">Projetos</a>
+                <a href="#contato" class="hover:text-green-600 transition">Contato</a>
             </div>
-            <button id="menu-btn" class="md:hidden text-gray-600">
+            <button id="menu-btn" class="md:hidden">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
         <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-md">
-            <a href="#sobre" class="block py-2 hover:text-primary">Sobre</a>
-            <a href="#habilidades" class="block py-2 hover:text-primary">Habilidades</a>
-            <a href="#projetos" class="block py-2 hover:text-primary">Projetos</a>
-            <a href="#experiencia" class="block py-2 hover:text-primary">Experiência</a>
-            <a href="#contato" class="block py-2 hover:text-primary">Contato</a>
+            <a href="#sobre" class="block py-2 hover:text-green-600">Sobre</a>
+            <a href="#experiencia" class="block py-2 hover:text-green-600">Experiência</a>
+            <a href="#projetos" class="block py-2 hover:text-green-600">Projetos</a>
+            <a href="#contato" class="block py-2 hover:text-green-600">Contato</a>
         </div>
     </header>
 
     <!-- Seção Hero -->
     <section class="bg-white py-12">
         <div class="container mx-auto px-4 text-center">
-            <img src="https://via.placeholder.com/150" alt="Foto de Ailton" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary">
+            <img src="https://via.placeholder.com/150" alt="Ailton Carlos" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-green-600">
             <h1 class="text-3xl md:text-4xl font-bold mb-2">Ailton Carlos S. Mota</h1>
-            <p class="text-lg text-primary font-medium mb-4">Professor | Desenvolvedor Front-end</p>
-            <p class="max-w-2xl mx-auto mb-6">Unindo educação e tecnologia para criar soluções inovadoras.</p>
+            <p class="text-lg text-green-700 font-medium mb-4">Professor de Filosofia | Desenvolvedor Front-end</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#projetos" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">Ver Projetos</a>
+                <a href="#projetos" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">Ver Projetos</a>
                 <a href="#contato" class="bg-gray-200 px-6 py-2 rounded-full hover:bg-gray-300 transition">Contato</a>
             </div>
         </div>
@@ -94,65 +74,88 @@
     <section id="sobre" class="py-12 container mx-auto px-4">
         <h2 class="text-2xl font-bold mb-6 text-center md:text-left">Sobre Mim</h2>
         <div class="bg-white p-6 rounded-lg shadow-sm">
-            <p class="mb-4">Professor de Filosofia e Informática com experiência em desenvolvimento front-end e manutenção de hardware.</p>
-            <p>Atualmente cursando Análise e Desenvolvimento de Sistemas e buscando oportunidades na área de tecnologia.</p>
+            <p class="mb-4">Professor de Filosofia e Informática com formação técnica em Mecânica Industrial. Experiência como técnico em manutenção de computadores, com domínio avançado em hardware, sistemas operacionais e pacotes Office.</p>
+            <p>Facilidade de comunicação, trabalho em equipe e grande disposição para aprender novas tecnologias.</p>
+        </div>
+        
+        <!-- Habilidades em Destaque -->
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                <i class="fas fa-laptop-code text-3xl text-green-600 mb-2"></i>
+                <p class="font-medium">Manutenção HW/SW</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                <i class="fab fa-windows text-3xl text-blue-500 mb-2"></i>
+                <p class="font-medium">Windows/Linux</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                <i class="fas fa-code text-3xl text-purple-600 mb-2"></i>
+                <p class="font-medium">HTML/CSS/JS</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                <i class="fas fa-users text-3xl text-amber-500 mb-2"></i>
+                <p class="font-medium">Trabalho em Equipe</p>
+            </div>
         </div>
     </section>
 
-    <!-- Seção Habilidades -->
-    <section id="habilidades" class="py-12 bg-gray-100">
+    <!-- Seção Experiência -->
+    <section id="experiencia" class="py-12 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 text-center">Minhas Habilidades</h2>
+            <h2 class="text-2xl font-bold mb-8 text-center">Experiência Profissional</h2>
             
-            <!-- Habilidades Técnicas -->
-            <div class="mb-12">
-                <h3 class="text-xl font-semibold mb-4 flex items-center">
-                    <i class="fas fa-code mr-2 text-primary"></i>Técnicas
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <!-- Item de habilidade -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
-                        <p>HTML5</p>
-                        <div class="w-full bg-gray-200 h-2 mt-2 rounded-full">
-                            <div class="bg-orange-500 h-2 rounded-full" style="width: 90%"></div>
-                        </div>
+            <div class="space-y-8 max-w-3xl mx-auto">
+                <!-- Item 1 -->
+                <div class="timeline-item pl-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-sm text-gray-500">2020 - Atual</p>
+                        <h3 class="text-xl font-bold mt-1">Professor de Filosofia</h3>
+                        <p class="text-gray-600">Secretaria de Estado de Educação MG</p>
+                        <p class="mt-2 text-gray-700">Ministrar aulas para ensino médio, elaborar planos de aula e atividades educacionais.</p>
                     </div>
-                    <!-- Adicione mais habilidades conforme necessário -->
                 </div>
-            </div>
-            
-            <!-- Habilidades Interpessoais -->
-            <div>
-                <h3 class="text-xl font-semibold mb-4 flex items-center">
-                    <i class="fas fa-users mr-2 text-primary"></i>Interpessoais
-                </h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-white px-4 py-2 rounded-full shadow-sm">Comunicação</span>
-                    <span class="bg-white px-4 py-2 rounded-full shadow-sm">Liderança</span>
-                    <!-- Adicione mais habilidades -->
+                
+                <!-- Item 2 -->
+                <div class="timeline-item pl-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <p class="text-sm text-gray-500">2018 - 2019</p>
+                        <h3 class="text-xl font-bold mt-1">Professor de Informática</h3>
+                        <p class="text-gray-600">Mister Cursos</p>
+                        <p class="mt-2 text-gray-700">Ensino de Windows, Pacote Office e montagem/manutenção de computadores.</p>
+                    </div>
                 </div>
+                
+                <!-- Adicione mais itens conforme necessário -->
             </div>
         </div>
     </section>
 
-    <!-- Seção Projetos -->
+    <!-- Seção Projetos (DESTAQUE!) -->
     <section id="projetos" class="py-12 container mx-auto px-4">
         <h2 class="text-2xl font-bold mb-8 text-center">Meus Projetos</h2>
+        
+        <!-- Filtros -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">Todos</button>
+            <button class="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">Front-end</button>
+            <button class="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition">Educação</button>
+        </div>
+        
+        <!-- Grid de Projetos -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card de Projeto -->
+            <!-- Projeto 1 -->
             <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
-                <img src="https://via.placeholder.com/400x200" alt="Projeto" class="w-full h-48 object-cover">
+                <img src="https://via.placeholder.com/600x400" alt="Projeto" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Gerenciador de Produtos</h3>
-                    <p class="text-gray-600 mb-4">Sistema CRUD desenvolvido com JavaScript puro.</p>
+                    <p class="text-gray-600 mb-4">Sistema CRUD completo com JavaScript puro.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">HTML</span>
                         <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">CSS</span>
                         <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">JavaScript</span>
                     </div>
                     <div class="flex gap-3">
-                        <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        <a href="#" class="text-green-600 font-medium hover:underline flex items-center">
                             Demo <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                         </a>
                         <a href="#" class="text-gray-600 font-medium hover:underline flex items-center">
@@ -161,48 +164,83 @@
                     </div>
                 </div>
             </div>
-            <!-- Adicione mais projetos -->
+            
+            <!-- Projeto 2 -->
+            <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                <img src="https://via.placeholder.com/600x400" alt="Projeto" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Plataforma Educacional</h3>
+                    <p class="text-gray-600 mb-4">Site para aulas online com recursos interativos.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">HTML</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">CSS</span>
+                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">JavaScript</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="#" class="text-green-600 font-medium hover:underline flex items-center">
+                            Demo <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 font-medium hover:underline flex items-center">
+                            Código <i class="fab fa-github ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Adicione mais projetos aqui -->
         </div>
     </section>
 
-    <!-- Seção Experiência -->
-    <section id="experiencia" class="py-12 bg-gray-100">
+    <!-- Seção Formação -->
+    <section id="formacao" class="py-12 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 text-center">Experiência Profissional</h2>
-            <div class="max-w-3xl mx-auto">
-                <!-- Item de Experiência -->
-                <div class="timeline-item mb-8">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <p class="text-sm text-gray-500">2020 - Atual</p>
-                        <h3 class="text-xl font-bold mt-1">Professor de Filosofia</h3>
-                        <p class="text-gray-600">Secretaria de Estado de Educação MG</p>
-                        <p class="mt-2 text-gray-700">Ministrar aulas para ensino médio, elaborar planos de aula e atividades.</p>
-                    </div>
+            <h2 class="text-2xl font-bold mb-8 text-center">Formação Acadêmica</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Item 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold">Mestrado em Filosofia</h3>
+                    <p class="text-gray-600">Universidade Estadual de Montes Claros</p>
+                    <p class="text-sm text-gray-500 mt-2">Conclusão em 2026</p>
                 </div>
-                <!-- Adicione mais experiências -->
+                
+                <!-- Item 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold">Licenciatura em Informática</h3>
+                    <p class="text-gray-600">Centro Universitário Leonardo da Vinci</p>
+                    <p class="text-sm text-gray-500 mt-2">Conclusão em 2025</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Seção Contato -->
     <section id="contato" class="py-12 container mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-8 text-center">Entre em Contato</h2>
+        <h2 class="text-2xl font-bold mb-8 text-center">Contato</h2>
+        
         <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-sm">
-            <div class="flex flex-col space-y-4">
-                <a href="mailto:ailtoncarlos0101@gmail.com" class="flex items-center text-gray-700 hover:text-primary">
-                    <i class="fas fa-envelope mr-3 text-xl"></i> ailtoncarlos0101@gmail.com
-                </a>
-                <a href="tel:+5538991139479" class="flex items-center text-gray-700 hover:text-primary">
-                    <i class="fas fa-phone mr-3 text-xl"></i> (38) 99113-9479
-                </a>
-                <div class="flex space-x-4 pt-4">
-                    <a href="https://linkedin.com/in/seu-linkedin" target="_blank" class="text-gray-600 hover:text-primary text-2xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/AiltonRock22" target="_blank" class="text-gray-600 hover:text-primary text-2xl">
-                        <i class="fab fa-github"></i>
-                    </a>
+            <div class="space-y-4">
+                <div class="flex items-center">
+                    <i class="fas fa-envelope text-green-600 mr-3 text-xl"></i>
+                    <a href="mailto:ailtoncarlos0101@gmail.com" class="hover:text-green-600">ailtoncarlos0101@gmail.com</a>
                 </div>
+                <div class="flex items-center">
+                    <i class="fas fa-phone text-green-600 mr-3 text-xl"></i>
+                    <a href="tel:+5538991139479" class="hover:text-green-600">(38) 99113-9479</a>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-green-600 mr-3 text-xl"></i>
+                    <span>Montes Claros, MG</span>
+                </div>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mt-8">
+                <a href="https://linkedin.com/in/seu-perfil" target="_blank" class="text-gray-600 hover:text-green-600 text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/AiltonRock22" target="_blank" class="text-gray-600 hover:text-green-600 text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -221,23 +259,23 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Dados dos Projetos (pode ser movido para um arquivo .js se preferir)
+        // Dados dos Projetos (pode ser expandido)
         const projetos = [
             {
                 titulo: "Gerenciador de Produtos",
                 descricao: "Sistema CRUD com JavaScript puro.",
                 tecnologias: ["HTML", "CSS", "JavaScript"],
                 demo: "#",
-                codigo: "#"
+                github: "#",
+                categoria: "frontend"
             },
             // Adicione mais projetos aqui
         ];
 
-        // Renderização dinâmica (opcional)
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     const container = document.getElementById('projetos-container');
-        //     projetos.forEach(projeto => {
-        //         container.innerHTML += criarCardProjeto(projeto);
+        // Filtragem de projetos (opcional)
+        // document.querySelectorAll('.filter-btn').forEach(btn => {
+        //     btn.addEventListener('click', function() {
+        //         // Lógica para filtrar projetos
         //     });
         // });
     </script>
